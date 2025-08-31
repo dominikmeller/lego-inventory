@@ -17,6 +17,11 @@ Outputs:
 - purchase-order.md
 - container_plan.md
 - container_plan.pdf (single column with thumbnails)
+
+Progress Reporting (script-level)
+---------------------------------
+- Flags: `--quiet`, `--verbose`, `--progress-json <path>`.
+- Phases: load JSON → pack → optimize → export; emits final summary.
 """
 
 import argparse
@@ -27,9 +32,87 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-from reportlab.lib.pagesizes import A4
-from reportlab.pdfgen import canvas
-from reportlab.lib.utils import ImageReader
+import sys
+import time
+
+
+# ---------- Progress utils (lightweight) ----------
+@dataclass
+class Step:
+    name: str
+    status: str = "pending"
+    started_at: Optional[float] = None
+    ended_at: Optional[float] = None
+    items_total: Optional[int] = None
+    items_done: int = 0
+
+
+class ProgressReporter:
+    def __init__(self, script: str, quiet: bool = False, verbose: bool = False, json_path: Optional[str] = None):
+        self.script = script
+        self.quiet = quiet
+        self.verbose = verbose
+        self.json_path = json_path
+        self.t0 = time.time()
+        self.steps: List[Step] = []
+        self._isatty = sys.stdout.isatty()
+
+    def start(self, name: str, total: Optional[int] = None) -> Step:
+        st = Step(name=name, status="in_progress", started_at=time.time(), items_total=total)
+        self.steps.append(st)
+        if self.verbose and not self.quiet:
+            print(f"→ {name}…")
+        return st
+
+    def update(self, st: Step, done: Optional[int] = None, total: Optional[int] = None) -> None:
+        if done is not None:
+            st.items_done = done
+        if total is not None:
+            st.items_total = total
+        if not self.quiet:
+            frac = ""
+            if st.items_total:
+                pct = int(100 * (st.items_done / max(1, st.items_total)))
+                frac = f" {st.items_done}/{st.items_total} ({pct}%)"
+            line = f"{st.name}:{frac}  elapsed {int(time.time()-st.started_at)}s"
+            end = "\r" if self._isatty and not self.verbose else "\n"
+            print(line, end=end, flush=True)
+
+    def end(self, st: Step, status: str = "completed") -> None:
+        st.status = status
+        st.ended_at = time.time()
+        if not self.quiet:
+            elapsed = int((st.ended_at - (st.started_at or st.ended_at)))
+            print(f"✓ {st.name} in {elapsed}s")
+
+    def finalize(self, totals: Dict[str, int]) -> None:
+        elapsed = int(time.time() - self.t0)
+        if not self.quiet:
+            print(
+                f"[sorter] Summary: unique_items={totals.get('unique_items', 0)}, "
+                f"pieces_total={totals.get('pieces_total', 0)}, colors={totals.get('colors', 0)}, "
+                f"files={totals.get('outputs', 0)} | elapsed={elapsed}s"
+            )
+        if self.json_path:
+            payload = {
+                "script": self.script,
+                "started_at": self.t0,
+                "ended_at": time.time(),
+                "elapsed_s": elapsed,
+                "steps": [
+                    {
+                        "name": s.name,
+                        "status": s.status,
+                        "started_at": s.started_at,
+                        "ended_at": s.ended_at,
+                        "items_total": s.items_total,
+                        "items_done": s.items_done,
+                    }
+                    for s in self.steps
+                ],
+                "totals": totals,
+            }
+            Path(self.json_path).write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
 # ---------- Drawer definitions (mm) ----------
 UTIL = 0.80  # 80% usable fill
@@ -151,18 +234,22 @@ class Part:
     image_file: str = ""
 
     def fits_conservative(self, drawer_dims: Tuple[float, float, float]) -> bool:
-        """Conservative dimensional checks against the drawer box."""
+        """Axis-aligned fit using sorted comparison for known dimensions.
+
+        - If 1 dim known: must be <= max axis.
+        - If 2 known: compare top-two of known vs top-two of box.
+        - If 3 known: compare all three sorted dims elementwise.
+        """
         known = [x for x in (self.l, self.w, self.h) if x is not None]
         if not known:
             return True
         box = sorted(drawer_dims)
-        if max(known) > box[-1]:
-            return False
-        if len(known) >= 2:
-            k2 = sorted(known)[-2:]
-            if k2[0] > box[-2] or k2[1] > box[-1]:
-                return False
-        return True
+        ks = sorted(known)
+        if len(ks) == 1:
+            return ks[-1] <= box[-1]
+        if len(ks) == 2:
+            return ks[-2] <= box[-2] and ks[-1] <= box[-1]
+        return all(a <= b for a, b in zip(ks, box))
 
 
 @dataclass
@@ -206,7 +293,7 @@ def pieces_per_new_drawer(kind: str, vol_each: float) -> int:
 
 
 # ---------- Packing (color-first, multi-type) ----------
-def pack_color_bucket(parts: List[Part], color: str) -> Dict[str, List[Drawer]]:
+def pack_color_bucket(parts: List[Part], color: str, strategy: str = "greedy") -> Dict[str, List[Drawer]]:
     drawers: Dict[str, List[Drawer]] = {k: [] for k in DRAWER_TYPES.keys()}
 
     # Ensure dims + defaults + volumes
@@ -218,9 +305,17 @@ def pack_color_bucket(parts: List[Part], color: str) -> Dict[str, List[Drawer]]:
             p.h = p.h if p.h is not None else Hi
         p.l, p.w, p.h = fill_dims_with_defaults_or_studs(p.l, p.w, p.h)
         p.vol_each = p.vol_each if p.vol_each is not None else (p.l * p.w * p.h)
+        try:
+            if p.vol_each is None or p.vol_each <= 0 or math.isnan(p.vol_each):
+                p.vol_each = FALLBACK_VOL_EACH
+        except Exception:
+            p.vol_each = FALLBACK_VOL_EACH
 
     # Largest first by per-piece volume
-    parts_sorted = sorted(parts, key=lambda p: p.vol_each, reverse=True)
+    parts_sorted = sorted(
+        parts,
+        key=lambda p: (-(p.vol_each or 0.0), str(p.part_id), str(p.name)),
+    )
 
     for p in parts_sorted:
         qty_left = p.qty
@@ -239,7 +334,8 @@ def pack_color_bucket(parts: List[Part], color: str) -> Dict[str, List[Drawer]]:
                 tie = {"SMALL": 0, "MED": 1, "DEEP": 2}[
                     kind
                 ]  # prefer smaller drawer on ties
-                candidates.append((need, tie, kind, per_draw))
+                fill_ratio = min(1.0, (per_draw * p.vol_each) / CAPACITY[kind])
+                candidates.append((need, tie, kind, per_draw, fill_ratio))
 
             if not candidates:
                 print(
@@ -249,21 +345,34 @@ def pack_color_bucket(parts: List[Part], color: str) -> Dict[str, List[Drawer]]:
                 qty_left = 0
                 break
 
-            need, _, best_kind, per_draw = min(candidates, key=lambda x: (x[0], x[1]))
+            if strategy == "balanced":
+                need, _, best_kind, per_draw, _ = min(
+                    candidates, key=lambda x: (x[0], -x[4], x[1])
+                )
+            else:
+                need, _, best_kind, per_draw, _ = min(candidates, key=lambda x: (x[0], x[1]))
 
-            # Try existing drawers (same color + kind)
-            for dr in drawers[best_kind]:
-                if dr.color != color:
-                    continue
-                cap = max_fit_by_volume(dr.remaining, p.vol_each)
-                if cap > 0:
-                    k = min(qty_left, cap)
-                    dr.place(p, k)
-                    qty_left -= k
-                    if qty_left == 0:
-                        break
+            # Try existing drawers
+            kinds_scan = ("SMALL", "MED", "DEEP") if strategy == "balanced" else (best_kind,)
+            placed = False
+            for kind_try in kinds_scan:
+                for dr in drawers[kind_try]:
+                    if dr.color != color:
+                        continue
+                    cap = max_fit_by_volume(dr.remaining, p.vol_each)
+                    if cap > 0:
+                        k = min(qty_left, cap)
+                        dr.place(p, k)
+                        qty_left -= k
+                        placed = True
+                        if qty_left == 0:
+                            break
+                if qty_left == 0:
+                    break
             if qty_left == 0:
                 break
+            if placed:
+                continue
 
             # Open a new drawer of chosen type
             new_dr = Drawer(kind=best_kind, color=color, capacity=CAPACITY[best_kind])
@@ -275,7 +384,7 @@ def pack_color_bucket(parts: List[Part], color: str) -> Dict[str, List[Drawer]]:
     return drawers
 
 
-def pack_all(parts: List[Part]) -> Dict[str, Dict[str, List[Drawer]]]:
+def pack_all(parts: List[Part], strategy: str = "greedy") -> Dict[str, Dict[str, List[Drawer]]]:
     # Group by color
     by_color: Dict[str, List[Part]] = {}
     for p in parts:
@@ -284,16 +393,19 @@ def pack_all(parts: List[Part]) -> Dict[str, Dict[str, List[Drawer]]]:
     # Pack colors in descending total volume
     color_order = sorted(
         by_color.keys(),
-        key=lambda c: sum(
-            (pp.vol_each if pp.vol_each is not None else FALLBACK_VOL_EACH) * pp.qty
-            for pp in by_color[c]
+        key=lambda c: (
+            sum(
+                (pp.vol_each if pp.vol_each is not None else FALLBACK_VOL_EACH) * pp.qty
+                for pp in by_color[c]
+            ),
+            c.lower(),
         ),
         reverse=True,
     )
 
     packed: Dict[str, Dict[str, List[Drawer]]] = {}
     for color in color_order:
-        packed[color] = pack_color_bucket(by_color[color], color)
+        packed[color] = pack_color_bucket(by_color[color], color, strategy=strategy)
 
     return packed
 
@@ -321,7 +433,7 @@ def optimize_units(drawers_needed: Dict[str, int]) -> Dict[str, int]:
         math.ceil(need_d / RACKS["5244"]["drawers"]["DEEP"]),
     )
     best = {"520": 0, "5244": 0, "cost": float("inf")}
-    max_xl = max(min_xl, math.ceil(need_s / 4) + 10)
+    max_xl = max(min_xl, math.ceil(need_s / 4))
 
     for xl in range(min_xl, max_xl + 1):
         covered_small = RACKS["5244"]["drawers"]["SMALL"] * xl
@@ -357,10 +469,21 @@ def export_purchase_order(
         f.write(f"- 520 (20× SMALL): **{xs}**\n")
         f.write(f"- 5244 (4× SMALL, 4× MED, 2× DEEP): **{xl}**\n\n")
 
+        f.write("### Purchase Links\n")
+        f.write("- 520 product page: https://rito.pl/szufladki-system-z-szufladami-organizer/35572-infinity-hearts-system-szuflad-organizer-regal-z-szufladami-plastik-520-20-szuflad-378x154x189cm-5713410019740.html\n")
+        f.write("- 5244 product page: https://rito.pl/szufladki-system-z-szufladami-organizer/35574-infinity-hearts-system-szuflad-organizer-regal-z-szufladami-plastik-5244-10-szuflad-378x154x189cm-5713410019764.html\n\n")
+
         f.write("## Costs (PLN)\n")
         f.write(f"- 520: {xs} × {RACKS['520']['price_pln']:.2f} PLN\n")
         f.write(f"- 5244: {xl} × {RACKS['5244']['price_pln']:.2f} PLN\n")
         f.write(f"- **Total: {cost:.2f} PLN**\n")
+
+        f.write("\n## Links\n")
+        f.write("- Container Plan (Markdown): [container_plan.md](container_plan.md)\n")
+        f.write("- Container Plan (PDF): [container_plan.pdf](container_plan.pdf)\n")
+        f.write("- Inventory (Excel): [lego_inventory.xlsx](lego_inventory.xlsx)\n")
+        f.write("- Inventory (Markdown): [lego_inventory.md](lego_inventory.md)\n")
+        f.write("- Aggregated Inventory JSON: [aggregated_inventory.json](aggregated_inventory.json)\n")
 
 
 def export_plan_md(
@@ -377,7 +500,7 @@ def export_plan_md(
                 f.write(f"### {kind_label} drawers ({len(drawers)})\n")
                 for i, dr in enumerate(drawers, start=1):
                     f.write(f"#### Drawer {i}\n")
-                    for item in dr.items:
+                    for item in sorted(dr.items, key=lambda it: (str(it.get('Part ID','')), str(it.get('Part Name','')))):
                         f.write(
                             f"- {item['Part ID']} | {item['Part Name']} | Qty: {item['Qty']}\n"
                         )
@@ -387,6 +510,14 @@ def export_plan_md(
 def export_plan_pdf(
     packed: Dict[str, Dict[str, List[Drawer]]], path="container_plan.pdf"
 ):
+    try:
+        from reportlab.lib.pagesizes import A4
+        from reportlab.pdfgen import canvas
+        from reportlab.lib.utils import ImageReader
+    except Exception:
+        print("⚠️ ReportLab not available; skipping PDF export.")
+        return
+
     c = canvas.Canvas(path, pagesize=A4)
     page_w, page_h = A4
     margin = 36
@@ -465,7 +596,7 @@ def export_plan_pdf(
             h3(f"{kind_label} drawers ({len(drawers)})")
             for i, dr in enumerate(drawers, start=1):
                 h3(f"Drawer {i}")
-                for item in dr.items:
+                for item in sorted(dr.items, key=lambda it: (str(it.get('Part ID','')), str(it.get('Part Name','')))):
                     item_line(item)
 
     c.save()
@@ -523,35 +654,63 @@ def load_parts(path: str) -> List[Part]:
 
 # ---------- Main ----------
 def main():
-    ap = argparse.ArgumentParser(
-        description="LEGO sorter (color-sorted, cost-optimized)."
-    )
+    ap = argparse.ArgumentParser(description="LEGO sorter (color-sorted, cost-optimized) with progress reporting")
     ap.add_argument(
         "--json",
         default="aggregated_inventory.json",
         help="Path to aggregated inventory JSON",
     )
+    ap.add_argument("--progress-json", default=None, help="Write progress JSON to this path")
+    ap.add_argument("--quiet", action="store_true", help="Only print final summary")
+    ap.add_argument("--verbose", action="store_true", help="Print step-by-step logs")
+    ap.add_argument("--pack-strategy", choices=["greedy", "balanced"], default="greedy", help="Packing heuristic to use")
+    ap.add_argument("--no-pdf", action="store_true", help="Skip PDF export")
+    ap.add_argument("--no-md", action="store_true", help="Skip Markdown export")
+    ap.add_argument("--purchase-only", action="store_true", help="Only output purchase-order.md")
     args = ap.parse_args()
+
+    prog = ProgressReporter(script="sorter", quiet=args.quiet, verbose=args.verbose, json_path=args.progress_json)
 
     if not Path(args.json).exists():
         raise FileNotFoundError(f"{args.json} not found. Run lego_inventory.py first.")
 
+    st_load = prog.start("Load JSON")
     parts = load_parts(args.json)
-    packed = pack_all(parts)
+    prog.end(st_load)
 
+    st_pack = prog.start("Pack parts", total=len(parts))
+    packed = pack_all(parts, strategy=args.pack_strategy)
+    prog.end(st_pack)
+
+    st_opt = prog.start("Optimize units")
     totals = count_drawers(packed)
     solution = optimize_units(totals)
+    prog.end(st_opt)
 
+    st_export = prog.start("Export files")
     export_purchase_order(solution, totals)
-    export_plan_md(packed)
-    export_plan_pdf(packed)
+    if not args.purchase_only and not args.no_md:
+        export_plan_md(packed)
+    if not args.purchase_only and not args.no_pdf:
+        export_plan_pdf(packed)
+    prog.end(st_export)
 
-    print(
-        f"✅ Packed by color. Drawers used → SMALL: {totals['SMALL']}, MED: {totals['MED']}, DEEP: {totals['DEEP']}"
-    )
-    print(
-        f"🧮 Units → 520: {solution['520']}, 5244: {solution['5244']}  (Total {solution['cost']:.2f} PLN)"
-    )
+    if not args.quiet:
+        print(
+            f"✅ Packed by color. Drawers used → SMALL: {totals['SMALL']}, MED: {totals['MED']}, DEEP: {totals['DEEP']}"
+        )
+        print(
+            f"🧮 Units → 520: {solution['520']}, 5244: {solution['5244']}  (Total {solution['cost']:.2f} PLN)"
+        )
+
+    prog.finalize(totals={
+        # Unique aggregated items from JSON
+        "unique_items": len(parts),
+        # Total pieces in all items
+        "pieces_total": sum(p.qty for p in parts),
+        "colors": len({p.color for p in parts}),
+        "outputs": 3,
+    })
 
 
 if __name__ == "__main__":
