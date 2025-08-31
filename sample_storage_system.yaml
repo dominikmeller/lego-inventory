@@ -41,14 +41,16 @@ storage:
       drawers: { SMALL: 20 }
       price_pln: 101.0
       link: https://rito.pl/szufladki-system-z-szufladami-organizer/35572-infinity-hearts-system-szuflad-organizer-regal-z-szufladami-plastik-520-20-szuflad-378x154x189cm-5713410019740.html
+      external_cm: [37.8, 15.4, 18.9]
 
     "5244":
       drawers: { SMALL: 4, MED: 4, DEEP: 2 }
       price_pln: 95.0
       link: https://rito.pl/szufladki-system-z-szufladami-organizer/35574-infinity-hearts-system-szuflad-organizer-regal-z-szufladami-plastik-5244-10-szuflad-378x154x189cm-5713410019764.html
+      external_cm: [37.8, 15.4, 18.9]
 
     "1310":
       drawers: { S1310: 10, L1310: 3, L1310_DEEP: 1 }
       price_pln: 138.0
       link: https://rito.pl/szufladki-system-z-szufladami-organizer/35573-infinity-hearts-system-szuflad-organizer-regal-z-szufladami-plastik-1310-14-szuflad-449x18x247cm-5713410019757.html
-
+      external_cm: [44.9, 18.0, 24.7]

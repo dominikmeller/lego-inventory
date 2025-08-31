@@ -148,8 +148,8 @@ CAPACITY = {k: capacity_mm3(v["dims"]) for k, v in DRAWER_TYPES.items()}
 
 # ---------- Racks (units) ----------
 RACKS = {
-    "520": {"drawers": {"SMALL": 20, "MED": 0, "DEEP": 0}, "price_pln": 101.00},
-    "5244": {"drawers": {"SMALL": 4, "MED": 4, "DEEP": 2}, "price_pln": 95.00},
+    "520": {"drawers": {"SMALL": 20, "MED": 0, "DEEP": 0}, "price_pln": 101.00, "external_cm": [37.8, 15.4, 18.9]},
+    "5244": {"drawers": {"SMALL": 4, "MED": 4, "DEEP": 2}, "price_pln": 95.00, "external_cm": [37.8, 15.4, 18.9]},
     # "1310" is added dynamically when enabled with a price
 }
 
@@ -167,6 +167,7 @@ def enable_1310(price_pln: Optional[float]) -> None:
         RACKS["1310"] = {
             "drawers": {"S1310": 10, "L1310": 3, "L1310_DEEP": 1},
             "price_pln": float(price_pln),
+            "external_cm": [44.9, 18.0, 24.7],
         }
 
 
@@ -218,10 +219,13 @@ def apply_storage_config(path: str) -> None:
             drawers = v.get("drawers", {}) if isinstance(v, dict) else {}
             price = v.get("price_pln") if isinstance(v, dict) else None
             link = v.get("link") if isinstance(v, dict) else None
+            ext = v.get("external_cm") if isinstance(v, dict) else None
             if isinstance(drawers, dict) and isinstance(price, (int, float)):
                 entry = {"drawers": {str(k): int(drawers[k]) for k in drawers}, "price_pln": float(price)}
                 if isinstance(link, str):
                     entry["link"] = link
+                if isinstance(ext, list) and len(ext) == 3 and all(isinstance(x, (int, float)) for x in ext):
+                    entry["external_cm"] = [float(ext[0]), float(ext[1]), float(ext[2])]
                 new_racks[str(code)] = entry
         if new_racks:
             RACKS = new_racks
@@ -691,6 +695,15 @@ def export_purchase_order(
             kinds = sorted(drawers.keys(), key=lambda k: CAPACITY.get(k, 0.0))
             parts = [f"{drawers[k]}× {k}" for k in kinds if drawers[k] > 0]
             return ", ".join(parts)
+        def fmt_external_cm(code: str) -> Optional[str]:
+            dims = RACKS.get(code, {}).get("external_cm")
+            if isinstance(dims, (list, tuple)) and len(dims) == 3:
+                try:
+                    L, W, H = float(dims[0]), float(dims[1]), float(dims[2])
+                    return f"{L:.1f}×{W:.1f}×{H:.1f} cm"
+                except Exception:
+                    return None
+            return None
         # Only print units actually present in solution, excluding the 'cost' key
         for code, val in solution.items():
             if code == "cost":
@@ -699,7 +712,11 @@ def export_purchase_order(
             if count <= 0:
                 continue
             comp = fmt_composition(RACKS.get(code, {}).get("drawers", {}))
-            f.write(f"- {code} ({comp}): **{count}**\n")
+            size_txt = fmt_external_cm(code)
+            if size_txt:
+                f.write(f"- {code} ({comp}): **{count}** — {size_txt}\n")
+            else:
+                f.write(f"- {code} ({comp}): **{count}**\n")
         f.write("\n")
 
         # Dynamic shop links rendered later from RACKS
@@ -728,6 +745,66 @@ def export_purchase_order(
             link = info.get("link")
             if isinstance(link, str) and link:
                 f.write(f"- {code}: {link}\n")
+
+        # Machine-readable YAML summary for tooling
+        try:
+            summary_units = {
+                code: int(val)
+                for code, val in solution.items()
+                if code != "cost" and int(val) > 0
+            }
+            summary_racks = {}
+            for code, cnt in summary_units.items():
+                info = RACKS.get(code, {})
+                entry = {
+                    "price_pln": float(info.get("price_pln", 0.0)),
+                    "drawers": info.get("drawers", {}),
+                }
+                if isinstance(info.get("external_cm"), list):
+                    entry["external_cm"] = info["external_cm"]
+                if isinstance(info.get("link"), str):
+                    entry["link"] = info["link"]
+                summary_racks[code] = entry
+
+            yaml_payload = {
+                "solution": {
+                    "units": summary_units,
+                    "total_cost_pln": float(cost),
+                },
+                "racks": summary_racks,
+                "drawer_usage": {k: int(v) for k, v in totals.items()},
+            }
+
+            f.write("\n## Machine-Readable Summary (YAML)\n")
+            f.write("```yaml\n")
+            if yaml is not None:
+                f.write(yaml.safe_dump(yaml_payload, sort_keys=True))
+            else:
+                # Minimal YAML serialization fallback
+                f.write("solution:\n")
+                f.write("  units:\n")
+                for code, cnt in summary_units.items():
+                    f.write(f"    {code}: {cnt}\n")
+                f.write(f"  total_cost_pln: {float(cost):.2f}\n")
+                f.write("racks:\n")
+                for code, info in summary_racks.items():
+                    f.write(f"  {code}:\n")
+                    f.write(f"    price_pln: {info['price_pln']:.2f}\n")
+                    if "external_cm" in info:
+                        L, W, H = info["external_cm"]
+                        f.write(f"    external_cm: [{L}, {W}, {H}]\n")
+                    if "link" in info:
+                        f.write(f"    link: {info['link']}\n")
+                    f.write("    drawers:\n")
+                    for kind, n in info["drawers"].items():
+                        f.write(f"      {kind}: {n}\n")
+                f.write("drawer_usage:\n")
+                for kind, n in totals.items():
+                    f.write(f"  {kind}: {int(n)}\n")
+            f.write("```\n")
+        except Exception:
+            # Non-fatal; continue without YAML block
+            pass
 
 
 def export_plan_md(
@@ -926,6 +1003,7 @@ def main():
     ap.add_argument("--storage", default="storage_system.yaml", help="Path to storage system YAML to override defaults")
     ap.add_argument("--cost-optimisation", action="store_true", help="Evaluate all rack combinations and pick the cheapest; save CSV comparison")
     ap.add_argument("--compare-out", default="racks_compare.csv", help="CSV path for rack mix comparison when cost optimisation is enabled")
+    ap.add_argument("--run-billy", action="store_true", help="After exports, run billy-fitting.py to produce BILLY layout from purchase-order.md")
     args = ap.parse_args()
 
     prog = ProgressReporter(script="sorter", quiet=args.quiet, verbose=args.verbose, json_path=args.progress_json)
@@ -1046,6 +1124,25 @@ def main():
         "colors": len({p.color for p in parts}),
         "outputs": 3,
     })
+
+    # Optional: execute BILLY fitting planner
+    def _run_billy():
+        try:
+            import subprocess, sys as _sys
+            print("→ Running billy-fitting.py …")
+            _ = subprocess.run([_sys.executable, "billy-fitting.py", "--source", "purchase-order.md"])  # noqa: S603
+        except Exception as e:
+            print(f"⚠️ Could not run billy-fitting.py: {e}")
+
+    if args.run_billy:
+        _run_billy()
+    elif not args.quiet:
+        try:
+            ans = input("Run BILLY fitting planner now? (y/n): ").strip().lower()
+            if ans == "y":
+                _run_billy()
+        except (EOFError, KeyboardInterrupt):
+            pass
 
 
 if __name__ == "__main__":
