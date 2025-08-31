@@ -561,9 +561,6 @@ def optimize_units(drawers_needed: Dict[str, int]) -> Dict[str, float]:
 def export_purchase_order(
     solution: Dict[str, int], totals: Dict[str, int], path="purchase-order.md"
 ):
-    xs = solution.get("520", 0)
-    xl = solution.get("5244", 0)
-    x1310 = int(solution.get("1310", 0)) if isinstance(solution.get("1310", 0), (int, float)) else 0
     cost = solution.get("cost", 0.0)
 
     with open(path, "w", encoding="utf-8") as f:
@@ -579,23 +576,34 @@ def export_purchase_order(
         f.write("\n")
 
         f.write("## Units to purchase\n")
-        f.write(f"- 520 (20× SMALL): **{xs}**\n")
-        f.write(f"- 5244 (4× SMALL, 4× MED, 2× DEEP): **{xl}**\n")
-        if x1310:
-            f.write(f"- 1310 (10× S1310, 3× L1310, 1× L1310_DEEP): **{x1310}**\n\n")
-        else:
-            f.write("\n")
+        def fmt_composition(drawers: Dict[str, int]) -> str:
+            kinds = sorted(drawers.keys(), key=lambda k: CAPACITY.get(k, 0.0))
+            parts = [f"{drawers[k]}× {k}" for k in kinds if drawers[k] > 0]
+            return ", ".join(parts)
+        # Only print units actually present in solution, excluding the 'cost' key
+        for code, val in solution.items():
+            if code == "cost":
+                continue
+            count = int(val)
+            if count <= 0:
+                continue
+            comp = fmt_composition(RACKS.get(code, {}).get("drawers", {}))
+            f.write(f"- {code} ({comp}): **{count}**\n")
+        f.write("\n")
 
-        f.write("### Purchase Links\n")
-        f.write("- 520 product page: https://rito.pl/szufladki-system-z-szufladami-organizer/35572-infinity-hearts-system-szuflad-organizer-regal-z-szufladami-plastik-520-20-szuflad-378x154x189cm-5713410019740.html\n")
-        f.write("- 5244 product page: https://rito.pl/szufladki-system-z-szufladami-organizer/35574-infinity-hearts-system-szuflad-organizer-regal-z-szufladami-plastik-5244-10-szuflad-378x154x189cm-5713410019764.html\n\n")
+        # Dynamic shop links rendered later from RACKS
 
         f.write("## Costs (PLN)\n")
-        f.write(f"- 520: {xs} × {RACKS['520']['price_pln']:.2f} PLN\n")
-        f.write(f"- 5244: {xl} × {RACKS['5244']['price_pln']:.2f} PLN\n")
-        if x1310:
-            f.write(f"- 1310: {x1310} × {RACKS['1310']['price_pln']:.2f} PLN\n")
-        f.write(f"- **Total: {cost:.2f} PLN**\n")
+        for code, val in solution.items():
+            if code == "cost":
+                continue
+            count = int(val)
+            if count <= 0:
+                continue
+            price = RACKS.get(code, {}).get("price_pln")
+            if isinstance(price, (int, float)):
+                f.write(f"- {code}: {count} × {float(price):.2f} PLN\n")
+        f.write(f"- **Total: {float(cost):.2f} PLN**\n")
 
         f.write("\n## Links\n")
         f.write("- Container Plan (Markdown): [container_plan.md](container_plan.md)\n")
@@ -605,9 +613,10 @@ def export_purchase_order(
         f.write("- Aggregated Inventory JSON: [aggregated_inventory.json](aggregated_inventory.json)\n")
 
         f.write("\n## Shop Links\n")
-        f.write("- 520 product page: https://rito.pl/szufladki-system-z-szufladami-organizer/35572-infinity-hearts-system-szuflad-organizer-regal-z-szufladami-plastik-520-20-szuflad-378x154x189cm-5713410019740.html\n")
-        f.write("- 5244 product page: https://rito.pl/szufladki-system-z-szufladami-organizer/35574-infinity-hearts-system-szuflad-organizer-regal-z-szufladami-plastik-5244-10-szuflad-378x154x189cm-5713410019764.html\n")
-        f.write("- 1310 product page (14 drawers): https://rito.pl/szufladki-system-z-szufladami-organizer/35573-infinity-hearts-system-szuflad-organizer-regal-z-szufladami-plastik-1310-14-szuflad-449x18x247cm-5713410019757.html\n")
+        for code, info in RACKS.items():
+            link = info.get("link")
+            if isinstance(link, str) and link:
+                f.write(f"- {code}: {link}\n")
 
 
 def export_plan_md(
@@ -617,7 +626,10 @@ def export_plan_md(
         f.write("# Container Plan (Color-sorted)\n\n")
         for color, by_type in packed.items():
             f.write(f"## {color}\n\n")
-            for kind_label in ("SMALL", "MED", "DEEP"):
+            kind_order = sorted(
+                [k for k, v in by_type.items() if v], key=lambda k: CAPACITY.get(k, 0.0)
+            )
+            for kind_label in kind_order:
                 drawers = by_type.get(kind_label, [])
                 if not drawers:
                     continue
@@ -713,7 +725,10 @@ def export_plan_pdf(
 
     for color, by_type in packed.items():
         h2(color)
-        for kind_label in ("SMALL", "MED", "DEEP"):
+        kind_order = sorted(
+            [k for k, v in by_type.items() if v], key=lambda k: CAPACITY.get(k, 0.0)
+        )
+        for kind_label in kind_order:
             drawers = by_type.get(kind_label, [])
             if not drawers:
                 continue
@@ -828,12 +843,20 @@ def main():
     prog.end(st_export)
 
     if not args.quiet:
-        print(
-            f"✅ Packed by color. Drawers used → SMALL: {totals['SMALL']}, MED: {totals['MED']}, DEEP: {totals['DEEP']}"
+        used_parts = ", ".join(
+            f"{k}: {totals[k]}" for k in sorted(totals.keys(), key=lambda t: CAPACITY.get(t, 0.0)) if totals[k] > 0
         )
-        print(
-            f"🧮 Units → 520: {solution['520']}, 5244: {solution['5244']}  (Total {solution['cost']:.2f} PLN)"
-        )
+        print(f"✅ Packed by color. Drawers used → {used_parts}")
+        # Dynamic units summary (exclude 'cost' and zero-count units)
+        units_list = []
+        for code, cnt in solution.items():
+            if code == "cost":
+                continue
+            n = int(cnt)
+            if n > 0:
+                units_list.append(f"{code}: {n}")
+        units_str = ", ".join(units_list)
+        print(f"🧮 Units → {units_str}  (Total {solution['cost']:.2f} PLN)")
 
     prog.finalize(totals={
         # Unique aggregated items from JSON

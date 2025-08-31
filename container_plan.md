@@ -702,6 +702,26 @@
 - 98138pr0282 | Tile Round 1 x 1 with Medium Blue Circles on White Background print | Qty: 2
 - 99563 | Tile Special 1 x 2 with Sloped Walls AKA Money / Gold Bar [Ingot] | Qty: 12
 
+### S1310 drawers (2)
+#### Drawer 1
+- 18943 | Technic Digger Bucket 5 x 7 x 4 1/2 Clamshell with Pin Hole and Axle Hole | Qty: 1
+- 54091 | Slope Curved 8 x 8 x 2 Inverted Double | Qty: 2
+- 67243 | Aircraft Fuselage Curved Forward 8 x 12 x 2 Bottom | Qty: 1
+- 71155 | Net 10 x 10 Square | Qty: 1
+
+#### Drawer 2
+- 15379 | Technic Link Tread with Beveled Edge | Qty: 34
+- 92402 | Tyre 30.4 x 14 Offset Tread [Centre Band] | Qty: 20
+
+### L1310 drawers (1)
+#### Drawer 1
+- 44666 | Plate Angles Hexagonal 14 X 18 | Qty: 2
+- 55976 | Tyre 56 x 26 Balloon | Qty: 10
+
+### L1310_DEEP drawers (1)
+#### Drawer 1
+- 61332 | Technic Pin with Friction Ridges Lengthwise with No Center Slots | Qty: 261
+
 ## Light Bluish Gray
 
 ### SMALL drawers (28)
@@ -1233,6 +1253,23 @@
 - 98138pr0186 | Tile Round 1 x 1 with Gauge Print | Qty: 4
 - 99563 | Tile Special 1 x 2 with Sloped Walls AKA Money / Gold Bar [Ingot] | Qty: 2
 
+### S1310 drawers (3)
+#### Drawer 1
+- 3673 | Technic Pin without Friction Ridges Lengthwise | Qty: 2
+- 54091 | Slope Curved 8 x 8 x 2 Inverted Double | Qty: 5
+- 92438 | Plate 8 x 16 | Qty: 1
+
+#### Drawer 2
+- 3673 | Technic Pin without Friction Ridges Lengthwise | Qty: 18
+- 4151b | Plate Special 8 x 8 with Grille [Hole in Center] | Qty: 1
+- 41539 | Plate 8 x 8 | Qty: 4
+- 6377 | Duplo Train Track 4 x 8 Straight | Qty: 12
+- 92438 | Plate 8 x 16 | Qty: 1
+
+#### Drawer 3
+- 3673 | Technic Pin without Friction Ridges Lengthwise | Qty: 50
+- 4274 | Technic Pin 1/2 | Qty: 37
+
 ### MED drawers (1)
 #### Drawer 1
 - 43979 | Wedge Plate Special 12 x 12 with 4 x 8 Recessed, Pin Holes | Qty: 1
@@ -1674,6 +1711,18 @@
 - 88072 | Plate Special 1 x 2 with Bar Up [Horizontal Arm 5mm] | Qty: 2
 - 98138 | Tile Round 1 x 1 | Qty: 12
 - 98302 | Engine, Smooth Small, 1 x 2 Side Plate with Axle Holders and Slot | Qty: 8
+
+### S1310 drawers (2)
+#### Drawer 1
+- 18922 | Plate Special 9 x 16 x 2/3 with 1 x 4 Recessed | Qty: 2
+- 6083 | Rock Panel Triangular 3 x 8 x 7 (aka LURP) | Qty: 1
+- 6378 | Duplo Train Track 4 x 8 Curved [Short] | Qty: 7
+- 71772 | Plate Special 8 x 16 x 2/3 with Six Recessed Edges with 1 x 4 Studs and Recessed Center with 2 x 4 Studs | Qty: 1
+- 71772pr0001 | Plate Special 8 x 16 with Six Recessed Edges with 1 x 4 Studs and Recessed Center with 2 x 4 Studs, Six White Stripes (Pedestrian Crossing) Print | Qty: 2
+- 92438 | Plate 8 x 16 | Qty: 1
+
+#### Drawer 2
+- 92584 | Wedge Plate 10 x 10 Cut Corner [No Centre Studs] | Qty: 2
 
 ### MED drawers (2)
 #### Drawer 1
@@ -2219,6 +2268,10 @@
 - 98138pr0275 | Tile Round 1 x 1 with Green Plug on Bright Green Background print | Qty: 1
 - 99563 | Tile Special 1 x 2 with Sloped Walls AKA Money / Gold Bar [Ingot] | Qty: 5
 
+### S1310 drawers (1)
+#### Drawer 1
+- 67245 | Aircraft Fuselage Curved Aft Section 8 x 12 x 2 Top | Qty: 1
+
 ### MED drawers (1)
 #### Drawer 1
 - 18720 | Duplo Airplane Base 12 x 12 x 2.5 | Qty: 1
@@ -2383,6 +2436,11 @@
 ### MED drawers (1)
 #### Drawer 1
 - 43093 | Technic Axle Pin with Friction Ridges Lengthwise | Qty: 102
+
+### L1310 drawers (1)
+#### Drawer 1
+- 35106 | Plane, Bottom 18 x 16 x 1 x 1 1/3 | Qty: 3
+- 42924 | Technic Pin Long with Friction Ridges Lengthwise, 1 Center Slot | Qty: 118
 
 ## Red
 
@@ -2732,6 +2790,15 @@
 - 92593 | Plate Special 1 x 4 with 2 Studs | Qty: 3
 - 98138 | Tile Round 1 x 1 | Qty: 2
 - 99206 | Plate Special 2 x 2 x 2/3 with Two Studs On Side and Two Raised | Qty: 1
+
+### S1310 drawers (2)
+#### Drawer 1
+- 16196 | Duplo Airplane 12 x 10 x 4 | Qty: 1
+- 32062 | Technic Axle 2 Notched | Qty: 22
+- 41948 | Plate 8 x 8 with Rounded End | Qty: 2
+
+#### Drawer 2
+- 89678 | Technic Pin 1/2 with Friction | Qty: 68
 
 ## Yellow
 
@@ -3100,6 +3167,10 @@
 - 99206 | Plate Special 2 x 2 x 2/3 with Two Studs On Side and Two Raised | Qty: 4
 - 99563 | Tile Special 1 x 2 with Sloped Walls AKA Money / Gold Bar [Ingot] | Qty: 7
 
+### L1310 drawers (1)
+#### Drawer 1
+- 75538 | Slope Curved 8 x 8 x 4, Ramp | Qty: 3
+
 ## Dark Blue
 
 ### SMALL drawers (5)
@@ -3222,6 +3293,15 @@
 - 85984 | Slope 30° 1 x 2 x 2/3 | Qty: 12
 - 87087 | Brick Special 1 x 1 with Stud on 1 Side | Qty: 14
 - 87580 | Plate Special 2 x 2 with Groove and Center Stud (Jumper) | Qty: 1
+
+### S1310 drawers (1)
+#### Drawer 1
+- 54095 | Slope Curved 8 x 8 x 2 Double | Qty: 1
+- 89523 | Plate Special 10 x 10 Octagonal with Hole | Qty: 4
+
+### L1310 drawers (1)
+#### Drawer 1
+- 62812 | Boat / Rubber Raft / Dinghy, Large 22 x 10 x 3 | Qty: 1
 
 ## Tan
 
@@ -3387,6 +3467,10 @@
 - 98138pr0088 | Tile Round 1 x 1 with Pixelated Nautilus/Ammonite print | Qty: 2
 - 99563 | Tile Special 1 x 2 with Sloped Walls AKA Money / Gold Bar [Ingot] | Qty: 3
 
+### S1310 drawers (1)
+#### Drawer 1
+- 41948 | Plate 8 x 8 with Rounded End | Qty: 1
+
 ## Trans-Light Blue
 
 ### SMALL drawers (5)
@@ -3462,6 +3546,11 @@
 - 87552 | Panel 1 x 2 x 2 [Side Supports / Hollow Studs] | Qty: 2
 - 87580 | Plate Special 2 x 2 with Groove and Center Stud (Jumper) | Qty: 1
 - 98138 | Tile Round 1 x 1 | Qty: 25
+
+### S1310 drawers (1)
+#### Drawer 1
+- 3251 | Panel 8 x 8 x 2 1/6th Circle with Pin Holes | Qty: 1
+- 69320 | Windscreen 8 x 8 x 3 Dome with Dual 2 Fingers - 7 Teeth | Qty: 1
 
 ## Green
 
@@ -3588,6 +3677,10 @@
 - 85861 | Plate Round 1 x 1 with Open Stud | Qty: 9
 - 85984 | Slope 30° 1 x 2 x 2/3 | Qty: 6
 - 87580 | Plate Special 2 x 2 with Groove and Center Stud (Jumper) | Qty: 12
+
+### S1310 drawers (1)
+#### Drawer 1
+- 92438 | Plate 8 x 16 | Qty: 1
 
 ## Reddish Brown
 
@@ -3888,6 +3981,11 @@
 - 98224 | Duplo Brick 2 x 4 Curved Bottom | Qty: 2
 - 98233 | Duplo Plate 2 x 6 | Qty: 1
 
+### S1310 drawers (1)
+#### Drawer 1
+- 51262 | Duplo Plate 8 x 8 | Qty: 1
+- 92438 | Plate 8 x 16 | Qty: 1
+
 ### MED drawers (1)
 #### Drawer 1
 - 28533 | Boat Hull 8 x 16 x 3 | Qty: 2
@@ -4106,6 +4204,10 @@
 - 98138 | Tile Round 1 x 1 | Qty: 5
 - 99207 | Bracket 1 x 2 - 2 x 2 Inverted | Qty: 2
 
+### S1310 drawers (1)
+#### Drawer 1
+- 41539 | Plate 8 x 8 | Qty: 2
+
 ## Lime
 
 ### SMALL drawers (3)
@@ -4280,6 +4382,10 @@
 - 98138pr0090 | Tile Round 1 x 1 with Pink Donut print | Qty: 2
 - 98138pr9986 | Tile Round 1 x 1 with Small Acorn Print | Qty: 2
 - 98283 | Brick Special 1 x 2 with Masonry Brick Profile | Qty: 35
+
+### S1310 drawers (1)
+#### Drawer 1
+- 41948 | Plate 8 x 8 with Rounded End | Qty: 1
 
 ## Bright Light Orange
 
@@ -4497,6 +4603,11 @@
 - 63868 | Plate Special 1 x 2 with Clip Horizontal on End | Qty: 6
 - 85861 | Plate Round 1 x 1 with Open Stud | Qty: 2
 - 98138 | Tile Round 1 x 1 | Qty: 2
+
+### S1310 drawers (1)
+#### Drawer 1
+- 4151b | Plate Special 8 x 8 with Grille [Hole in Center] | Qty: 2
+- 92438 | Plate 8 x 16 | Qty: 1
 
 ## Dark Red
 
@@ -4934,6 +5045,10 @@
 - 6636 | Tile 1 x 6 with Groove | Qty: 2
 - 66789 | Plate Round Corners 6 x 6 x 2/3 Circle with Reduced Knobs | Qty: 1
 - 66792 | Plate Round Corners 4 x 4 x 2/3 Circle with Reduced Knobs | Qty: 2
+
+### S1310 drawers (1)
+#### Drawer 1
+- 66790 | Plate Round Corners 8 x 8 x 2/3 Circle with Reduced Knobs | Qty: 1
 
 ## Bright Pink
 
