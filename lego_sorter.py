@@ -34,6 +34,10 @@ from typing import Dict, List, Optional, Tuple
 
 import sys
 import time
+try:
+    import yaml  # type: ignore
+except Exception:
+    yaml = None
 
 
 # ---------- Progress utils (lightweight) ----------
@@ -121,10 +125,16 @@ SMALL_DIMS = (133.0, 62.0, 37.0)
 MED_DIMS = (133.0, 133.0, 37.0)
 DEEP_DIMS = (133.0, 133.0, 80.0)
 
+# Accurate 1310 unit drawer dimensions (mm) from product page
+S1310_DIMS = (160.0, 86.0, 39.0)     # 16.0 x 8.6 x 3.9 cm, 10 pcs
+L1310_DIMS = (223.0, 160.0, 39.0)    # 22.3 x 16.0 x 3.9 cm, 3 pcs
+L1310_DEEP_DIMS = (223.0, 160.0, 85.0)  # 22.3 x 16.0 x 8.5 cm, 1 pc
+
 DRAWER_TYPES = {
     "SMALL": {"dims": SMALL_DIMS},
     "MED": {"dims": MED_DIMS},
     "DEEP": {"dims": DEEP_DIMS},
+    # 1310 variants are enabled optionally in main()
 }
 
 
@@ -139,7 +149,81 @@ CAPACITY = {k: capacity_mm3(v["dims"]) for k, v in DRAWER_TYPES.items()}
 RACKS = {
     "520": {"drawers": {"SMALL": 20, "MED": 0, "DEEP": 0}, "price_pln": 101.00},
     "5244": {"drawers": {"SMALL": 4, "MED": 4, "DEEP": 2}, "price_pln": 95.00},
+    # "1310" is added dynamically when enabled with a price
 }
+
+
+def enable_1310(price_pln: Optional[float]) -> None:
+    """Enable 1310 drawer types and rack option if a price is provided."""
+    global DRAWER_TYPES, CAPACITY, RACKS
+    DRAWER_TYPES.update({
+        "S1310": {"dims": S1310_DIMS},
+        "L1310": {"dims": L1310_DIMS},
+        "L1310_DEEP": {"dims": L1310_DEEP_DIMS},
+    })
+    CAPACITY = {k: capacity_mm3(v["dims"]) for k, v in DRAWER_TYPES.items()}
+    if price_pln is not None:
+        RACKS["1310"] = {
+            "drawers": {"S1310": 10, "L1310": 3, "L1310_DEEP": 1},
+            "price_pln": float(price_pln),
+        }
+
+
+def apply_storage_config(path: str) -> None:
+    """Apply storage configuration from YAML, overriding defaults.
+
+    Expected structure:
+      storage:
+        util: 0.8
+        drawer_types:
+          KIND: { dims_mm: [L, W, H] }
+        racks:
+          CODE: { drawers: {KIND: count, ...}, price_pln: 123.0, link: "..." }
+    """
+    global UTIL, DRAWER_TYPES, CAPACITY, RACKS
+    p = Path(path)
+    if not p.exists():
+        return
+    if yaml is None:
+        print(f"⚠️ PyYAML not installed; cannot read {path}. Using built-in defaults.")
+        return
+    try:
+        data = yaml.safe_load(p.read_text(encoding="utf-8")) or {}
+    except Exception:
+        print(f"⚠️ Failed to parse {path}; using built-in defaults.")
+        return
+    storage = data.get("storage", {}) if isinstance(data, dict) else {}
+    util = storage.get("util")
+    if isinstance(util, (int, float)) and 0 < util <= 1:
+        UTIL = float(util)
+    dt = storage.get("drawer_types", {})
+    if isinstance(dt, dict):
+        new_types: Dict[str, Dict[str, Tuple[float, float, float]]] = {}
+        for k, v in dt.items():
+            dims = v.get("dims_mm") if isinstance(v, dict) else None
+            if (
+                isinstance(dims, list)
+                and len(dims) == 3
+                and all(isinstance(x, (int, float)) for x in dims)
+            ):
+                new_types[str(k)] = {"dims": (float(dims[0]), float(dims[1]), float(dims[2]))}
+        if new_types:
+            DRAWER_TYPES = new_types
+            CAPACITY = {k: capacity_mm3(v["dims"]) for k, v in DRAWER_TYPES.items()}
+    racks = storage.get("racks", {})
+    if isinstance(racks, dict):
+        new_racks: Dict[str, Dict] = {}
+        for code, v in racks.items():
+            drawers = v.get("drawers", {}) if isinstance(v, dict) else {}
+            price = v.get("price_pln") if isinstance(v, dict) else None
+            link = v.get("link") if isinstance(v, dict) else None
+            if isinstance(drawers, dict) and isinstance(price, (int, float)):
+                entry = {"drawers": {str(k): int(drawers[k]) for k in drawers}, "price_pln": float(price)}
+                if isinstance(link, str):
+                    entry["link"] = link
+                new_racks[str(code)] = entry
+        if new_racks:
+            RACKS = new_racks
 
 # ---------- Defaults & Parsers ----------
 STUD_MM = 8.0
@@ -317,6 +401,9 @@ def pack_color_bucket(parts: List[Part], color: str, strategy: str = "greedy") -
         key=lambda p: (-(p.vol_each or 0.0), str(p.part_id), str(p.name)),
     )
 
+    # Kind order: prefer smaller capacities when tie-breaking
+    kind_order = sorted(DRAWER_TYPES.keys(), key=lambda k: CAPACITY[k])
+
     for p in parts_sorted:
         qty_left = p.qty
         fits_type = {
@@ -326,14 +413,12 @@ def pack_color_bucket(parts: List[Part], color: str, strategy: str = "greedy") -
         while qty_left > 0:
             # prefer smallest feasible drawer that minimizes new drawers
             candidates = []
-            for kind in ("SMALL", "MED", "DEEP"):
+            for kind in kind_order:
                 if not fits_type[kind]:
                     continue
                 per_draw = max(pieces_per_new_drawer(kind, p.vol_each), 1)
                 need = math.ceil(qty_left / per_draw)
-                tie = {"SMALL": 0, "MED": 1, "DEEP": 2}[
-                    kind
-                ]  # prefer smaller drawer on ties
+                tie = kind_order.index(kind)  # prefer smaller drawer on ties
                 fill_ratio = min(1.0, (per_draw * p.vol_each) / CAPACITY[kind])
                 candidates.append((need, tie, kind, per_draw, fill_ratio))
 
@@ -353,7 +438,7 @@ def pack_color_bucket(parts: List[Part], color: str, strategy: str = "greedy") -
                 need, _, best_kind, per_draw, _ = min(candidates, key=lambda x: (x[0], x[1]))
 
             # Try existing drawers
-            kinds_scan = ("SMALL", "MED", "DEEP") if strategy == "balanced" else (best_kind,)
+            kinds_scan = tuple(kind_order) if strategy == "balanced" else (best_kind,)
             placed = False
             for kind_try in kinds_scan:
                 for dr in drawers[kind_try]:
@@ -412,14 +497,38 @@ def pack_all(parts: List[Part], strategy: str = "greedy") -> Dict[str, Dict[str,
 
 # ---------- Cost optimization ----------
 def count_drawers(packed: Dict[str, Dict[str, List[Drawer]]]) -> Dict[str, int]:
-    totals = {"SMALL": 0, "MED": 0, "DEEP": 0}
+    totals = {k: 0 for k in DRAWER_TYPES.keys()}
     for _, by_type in packed.items():
-        for kind in totals:
+        for kind in totals.keys():
             totals[kind] += len(by_type.get(kind, []))
     return totals
 
 
-def optimize_units(drawers_needed: Dict[str, int]) -> Dict[str, int]:
+def optimize_units(drawers_needed: Dict[str, int]) -> Dict[str, float]:
+    """Compute cheapest combination of units covering demand.
+
+    Covers base kinds (SMALL, MED, DEEP) with 520/5244. If 1310 is enabled, it
+    covers S1310/L1310/L1310_DEEP independently by taking the max needed.
+    """
+    result: Dict[str, float] = {"520": 0, "5244": 0, "cost": 0.0}
+
+    # 1310-specific kinds
+    if "1310" in RACKS:
+        need_s13 = drawers_needed.get("S1310", 0)
+        need_l13 = drawers_needed.get("L1310", 0)
+        need_ld13 = drawers_needed.get("L1310_DEEP", 0)
+        if any([need_s13, need_l13, need_ld13]):
+            s_per = max(RACKS["1310"]["drawers"].get("S1310", 1), 1)
+            l_per = max(RACKS["1310"]["drawers"].get("L1310", 1), 1)
+            d_per = max(RACKS["1310"]["drawers"].get("L1310_DEEP", 1), 1)
+            xs13 = math.ceil(need_s13 / s_per)
+            xl13 = math.ceil(need_l13 / l_per)
+            xd13 = math.ceil(need_ld13 / d_per)
+            x13 = max(xs13, xl13, xd13)
+            result["1310"] = x13
+            result["cost"] += x13 * RACKS["1310"]["price_pln"]
+
+    # Base kinds (unchanged logic)
     need_s = drawers_needed.get("SMALL", 0)
     need_m = drawers_needed.get("MED", 0)
     need_d = drawers_needed.get("DEEP", 0)
@@ -427,27 +536,25 @@ def optimize_units(drawers_needed: Dict[str, int]) -> Dict[str, int]:
     price_s = RACKS["520"]["price_pln"]
     price_l = RACKS["5244"]["price_pln"]
 
-    # 5244 must cover MED & DEEP
     min_xl = max(
-        math.ceil(need_m / RACKS["5244"]["drawers"]["MED"]),
-        math.ceil(need_d / RACKS["5244"]["drawers"]["DEEP"]),
+        math.ceil(need_m / max(RACKS["5244"]["drawers"].get("MED", 1), 1)),
+        math.ceil(need_d / max(RACKS["5244"]["drawers"].get("DEEP", 1), 1)),
     )
     best = {"520": 0, "5244": 0, "cost": float("inf")}
-    max_xl = max(min_xl, math.ceil(need_s / 4))
+    max_xl = max(min_xl, math.ceil(need_s / max(RACKS["5244"]["drawers"].get("SMALL", 1), 1)))
 
     for xl in range(min_xl, max_xl + 1):
-        covered_small = RACKS["5244"]["drawers"]["SMALL"] * xl
+        covered_small = RACKS["5244"]["drawers"].get("SMALL", 0) * xl
         rem_small = max(0, need_s - covered_small)
-        xs = (
-            math.ceil(rem_small / RACKS["520"]["drawers"]["SMALL"])
-            if rem_small > 0
-            else 0
-        )
+        xs = math.ceil(rem_small / max(RACKS["520"]["drawers"].get("SMALL", 1), 1)) if rem_small > 0 else 0
         cost = xl * price_l + xs * price_s
         if cost < best["cost"]:
             best = {"520": xs, "5244": xl, "cost": cost}
 
-    return best
+    result["520"] = best["520"]
+    result["5244"] = best["5244"]
+    result["cost"] += best["cost"]
+    return result
 
 
 # ---------- Exports ----------
@@ -456,18 +563,28 @@ def export_purchase_order(
 ):
     xs = solution.get("520", 0)
     xl = solution.get("5244", 0)
+    x1310 = int(solution.get("1310", 0)) if isinstance(solution.get("1310", 0), (int, float)) else 0
     cost = solution.get("cost", 0.0)
 
     with open(path, "w", encoding="utf-8") as f:
         f.write("# LEGO Storage Purchase Order\n\n")
         f.write("## Drawer usage\n")
-        f.write(f"- SMALL drawers used: **{totals['SMALL']}**\n")
-        f.write(f"- MED drawers used: **{totals['MED']}**\n")
-        f.write(f"- DEEP drawers used: **{totals['DEEP']}**\n\n")
+        f.write(f"- SMALL drawers used: **{totals.get('SMALL', 0)}**\n")
+        f.write(f"- MED drawers used: **{totals.get('MED', 0)}**\n")
+        f.write(f"- DEEP drawers used: **{totals.get('DEEP', 0)}**\n")
+        if 'S1310' in totals or 'L1310' in totals or 'L1310_DEEP' in totals:
+            f.write(f"- S1310 drawers used: **{totals.get('S1310', 0)}**\n")
+            f.write(f"- L1310 drawers used: **{totals.get('L1310', 0)}**\n")
+            f.write(f"- L1310_DEEP drawers used: **{totals.get('L1310_DEEP', 0)}**\n")
+        f.write("\n")
 
         f.write("## Units to purchase\n")
         f.write(f"- 520 (20× SMALL): **{xs}**\n")
-        f.write(f"- 5244 (4× SMALL, 4× MED, 2× DEEP): **{xl}**\n\n")
+        f.write(f"- 5244 (4× SMALL, 4× MED, 2× DEEP): **{xl}**\n")
+        if x1310:
+            f.write(f"- 1310 (10× S1310, 3× L1310, 1× L1310_DEEP): **{x1310}**\n\n")
+        else:
+            f.write("\n")
 
         f.write("### Purchase Links\n")
         f.write("- 520 product page: https://rito.pl/szufladki-system-z-szufladami-organizer/35572-infinity-hearts-system-szuflad-organizer-regal-z-szufladami-plastik-520-20-szuflad-378x154x189cm-5713410019740.html\n")
@@ -476,6 +593,8 @@ def export_purchase_order(
         f.write("## Costs (PLN)\n")
         f.write(f"- 520: {xs} × {RACKS['520']['price_pln']:.2f} PLN\n")
         f.write(f"- 5244: {xl} × {RACKS['5244']['price_pln']:.2f} PLN\n")
+        if x1310:
+            f.write(f"- 1310: {x1310} × {RACKS['1310']['price_pln']:.2f} PLN\n")
         f.write(f"- **Total: {cost:.2f} PLN**\n")
 
         f.write("\n## Links\n")
@@ -484,6 +603,11 @@ def export_purchase_order(
         f.write("- Inventory (Excel): [lego_inventory.xlsx](lego_inventory.xlsx)\n")
         f.write("- Inventory (Markdown): [lego_inventory.md](lego_inventory.md)\n")
         f.write("- Aggregated Inventory JSON: [aggregated_inventory.json](aggregated_inventory.json)\n")
+
+        f.write("\n## Shop Links\n")
+        f.write("- 520 product page: https://rito.pl/szufladki-system-z-szufladami-organizer/35572-infinity-hearts-system-szuflad-organizer-regal-z-szufladami-plastik-520-20-szuflad-378x154x189cm-5713410019740.html\n")
+        f.write("- 5244 product page: https://rito.pl/szufladki-system-z-szufladami-organizer/35574-infinity-hearts-system-szuflad-organizer-regal-z-szufladami-plastik-5244-10-szuflad-378x154x189cm-5713410019764.html\n")
+        f.write("- 1310 product page (14 drawers): https://rito.pl/szufladki-system-z-szufladami-organizer/35573-infinity-hearts-system-szuflad-organizer-regal-z-szufladami-plastik-1310-14-szuflad-449x18x247cm-5713410019757.html\n")
 
 
 def export_plan_md(
@@ -667,12 +791,20 @@ def main():
     ap.add_argument("--no-pdf", action="store_true", help="Skip PDF export")
     ap.add_argument("--no-md", action="store_true", help="Skip Markdown export")
     ap.add_argument("--purchase-only", action="store_true", help="Only output purchase-order.md")
+    # 1310 support is enabled by default; price can be overridden
+    ap.add_argument("--enable-1310", action="store_true", default=True, help="Enable 1310 drawer sizes and allow purchasing 1310 units (enabled by default)")
+    ap.add_argument("--price-1310", type=float, default=138.0, help="Price (PLN) for 1310 unit (default: 138.0)")
+    ap.add_argument("--storage", default="storage_system.yaml", help="Path to storage system YAML to override defaults")
     args = ap.parse_args()
 
     prog = ProgressReporter(script="sorter", quiet=args.quiet, verbose=args.verbose, json_path=args.progress_json)
 
     if not Path(args.json).exists():
         raise FileNotFoundError(f"{args.json} not found. Run lego_inventory.py first.")
+
+    # Enable 1310 sizes by default (honor override price), then apply YAML overrides
+    enable_1310(args.price_1310)
+    apply_storage_config(args.storage)
 
     st_load = prog.start("Load JSON")
     parts = load_parts(args.json)
