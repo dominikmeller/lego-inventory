@@ -8,7 +8,7 @@ venv/
 *.zip
 *.xlsx
 *.json
-*.txt
+sets.txt
 
 
 # Byte-compiled / optimized / DLL files

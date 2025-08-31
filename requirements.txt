@@ -1,0 +1,14 @@
+# Requirements for LEGO Inventory Project
+# Generated for lego_inventory.py and lego_sorter.py
+
+# Data manipulation and analysis
+pandas>=1.5.0
+
+# HTTP requests for API calls
+requests>=2.28.0
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+# PDF generation
+reportlab>=4.0.0
