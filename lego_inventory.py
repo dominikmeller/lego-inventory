@@ -5,8 +5,12 @@ LEGO Inventory Pipeline
 - Reads set list from CLI or sets.txt (one set per line).
 - Loads REBRICKABLE_API_KEY from .env; if missing, prompts for input.
 - Fetches set inventories with retry + backoff; falls back to "-1" suffix.
-- Parses dimensions from part name (robust parser: mm for Tyre/Wheel, studs for Brick/Plate/Tile/etc.).
-- If height is missing but L/W known → assumes H = 5 mm.
+- Parses dimensions from part name:
+    * Tyre/Wheel numbers are interpreted as millimetres.
+    * Brick/Plate/Tile 'A x B x C' are studs → mm (8 mm per stud; plate=3.2 mm; brick=9.6 mm).
+- Dimension defaults:
+    * If ALL dims are unknown → fallback box = 2×4×1 studs = 16×32×9.6 mm (4915.2 mm³).
+    * If SOME dims are known → fill missing independently: L=30 mm (depth), W=10 mm, H=10 mm.
 - Downloads part images locally (images/{part_id}_{color_id}.jpg).
 - Exports:
   - lego_inventory.xlsx  (Inventory + Aggregated)
@@ -18,7 +22,6 @@ import os
 import sys
 import json
 import time
-import math
 import re
 from pathlib import Path
 from typing import Dict, Any, List, Optional, Tuple
@@ -29,18 +32,25 @@ from dotenv import load_dotenv
 
 # ---------------- Config ----------------
 BASE_URL = "https://rebrickable.com/api/v3/lego"
-CACHE_PATH = Path("cache.json")
 IMAGE_DIR = Path("images")
 OUT_XLSX = "lego_inventory.xlsx"
 OUT_MD = "lego_inventory.md"
 OUT_JSON = "aggregated_inventory.json"
 SETS_FILE = "sets.txt"
 
-# dimensions (mm)
+# Stud & brick metrics (mm)
 STUD_MM = 8.0
 PLATE_H_MM = 3.2
 BRICK_H_MM = 9.6
-DEFAULT_H_IF_MISSING = 5.0  # <— requested assumption
+
+# Independent defaults when SOME dims are known
+DEFAULT_L_IF_MISSING = 30.0  # "depth"
+DEFAULT_W_IF_MISSING = 10.0
+DEFAULT_H_IF_MISSING = 10.0
+
+# Fallback when ALL dims are unknown: 2×4×1 studs
+FALLBACK_STUDS_DIMS = (2 * STUD_MM, 4 * STUD_MM, 1 * BRICK_H_MM)  # (16, 32, 9.6) mm
+FALLBACK_VOL_EACH = FALLBACK_STUDS_DIMS[0] * FALLBACK_STUDS_DIMS[1] * FALLBACK_STUDS_DIMS[2]  # 4915.2 mm³
 
 # ------------- Helpers ------------------
 def load_api_key() -> str:
@@ -58,17 +68,6 @@ def parse_sets_from_args_or_file() -> List[str]:
             return [ln.strip() for ln in f if ln.strip()]
     print("No set numbers provided. Supply as CLI args or create sets.txt.")
     sys.exit(1)
-
-def load_cache() -> Dict[str, Any]:
-    if CACHE_PATH.exists():
-        try:
-            return json.loads(CACHE_PATH.read_text(encoding="utf-8"))
-        except Exception:
-            return {}
-    return {}
-
-def save_cache(cache: Dict[str, Any]) -> None:
-    CACHE_PATH.write_text(json.dumps(cache, indent=2), encoding="utf-8")
 
 def backoff_sleep(attempt: int) -> None:
     time.sleep(min(2 ** attempt, 10))
@@ -99,12 +98,6 @@ def ensure_image(part_id: str, color_id: int, url: Optional[str]) -> str:
     return str(path)
 
 # ------------- Dimension Parser -----------------
-# Heuristic parser that:
-#  - treats Tyre/Wheel "A x B" as millimetres
-#  - treats Brick/Plate/Tile "A x B x C" as studs→mm
-#  - if height missing but L/W present → H = 5 mm
-#  - otherwise returns (None, None, None)
-
 _STUD_RE = re.compile(r'(\d+(?:/\d+)?)\s*[x×]\s*(\d+(?:/\d+)?)\s*(?:[x×]\s*(\d+(?:/\d+)?))?')
 _TYRE_WHEEL_MM_RE = re.compile(
     r'(tyre|tire|wheel)[^0-9]*?(\d+(?:\.\d+)?)\s*(?:mm)?\s*[dx×]\s*(\d+(?:\.\d+)?)\s*(?:mm)?',
@@ -120,46 +113,45 @@ def _stud_to_mm(token: str) -> float:
 def infer_dims_from_name(name: str) -> Tuple[Optional[float], Optional[float], Optional[float]]:
     n = name.lower().strip()
 
-    # Case 1: Tyre/Wheel — interpret numbers as millimetres
+    # Tyre/Wheel: treat two numbers as mm (Diameter x Width)
     mm_match = _TYRE_WHEEL_MM_RE.search(n)
     if mm_match:
         diameter = float(mm_match.group(2))
         width = float(mm_match.group(3))
-        # Bounding box as diameter x diameter x width
-        L, W, H = diameter, diameter, width
-        if H is None:
-            H = DEFAULT_H_IF_MISSING
-        return L, W, H
+        return diameter, diameter, width  # L, W, H as bounding box
 
-    # Case 2: Stud-based footprint (most bricks/plates/tiles/slopes)
+    # Stud-based: A x B x C (studs)
     stud_match = _STUD_RE.search(n)
     if stud_match:
         a, b, c = stud_match.group(1), stud_match.group(2), stud_match.group(3)
         L = _stud_to_mm(a)
         W = _stud_to_mm(b)
-
-        # Height rules by part family
         H = None
         if 'tile' in n or 'plate' in n:
             H = PLATE_H_MM
         elif 'brick' in n and not c:
             H = BRICK_H_MM
         elif c:
-            # Third token as stud-height (e.g., 2/3)
             if '/' in c:
                 num, den = c.split('/')
                 H = (float(num) / float(den)) * BRICK_H_MM
             else:
-                # Rare: integer brick-count (e.g., 2) → 2 bricks high
                 H = float(c) * BRICK_H_MM
-
-        if H is None:
-            H = DEFAULT_H_IF_MISSING
-
         return L, W, H
 
-    # Nothing we can parse
     return (None, None, None)
+
+def fill_dims_with_defaults_or_studs(L, W, H):
+    """
+    - If ALL are None -> use studs fallback (2×4×1 studs) = 16×32×9.6 mm.
+    - Else, fill missing ones independently with defaults: L=30, W=10, H=10 mm.
+    """
+    if L is None and W is None and H is None:
+        return FALLBACK_STUDS_DIMS
+    if L is None: L = DEFAULT_L_IF_MISSING
+    if W is None: W = DEFAULT_W_IF_MISSING
+    if H is None: H = DEFAULT_H_IF_MISSING
+    return L, W, H
 
 # ------------- Fetchers -----------------
 def get_set_details(setnum: str, headers: Dict[str, str]) -> Optional[Dict[str, Any]]:
@@ -187,7 +179,6 @@ def get_set_parts(setnum: str, headers: Dict[str, str]) -> List[Dict[str, Any]]:
 def main():
     api_key = load_api_key()
     headers = {"Authorization": f"key {api_key}"}
-    cache = load_cache()
     set_list = parse_sets_from_args_or_file()
 
     inventory_rows: List[Dict[str, Any]] = []
@@ -195,40 +186,25 @@ def main():
     for raw_set in set_list:
         setnum = raw_set.strip()
 
-        cache.setdefault("sets", {})
-        sd = cache["sets"].get(setnum)
-        if not sd:
-            sd = get_set_details(setnum, headers)
-            if sd:
-                cache["sets"][setnum] = sd
-                save_cache(cache)
-        if not sd:
+        details = get_set_details(setnum, headers)
+        if not details:
             print(f"⚠️ Set not found: {setnum}")
             continue
 
-        set_id = sd.get("set_num", f"{setnum}-1")
-        set_name = sd.get("name", "Unknown Set")
+        set_id = details.get("set_num", f"{setnum}-1")
+        set_name = details.get("name", "Unknown Set")
 
-        cache.setdefault("set_parts", {})
-        parts = cache["set_parts"].get(set_id)
-        if not parts:
-            parts = get_set_parts(set_id, headers)
-            cache["set_parts"][set_id] = parts
-            save_cache(cache)
-            # tiny delay to be gentle to API
-            time.sleep(0.4)
+        parts = get_set_parts(set_id, headers)
+        time.sleep(0.35)  # polite pause per page
 
         for it in parts:
             part = it["part"]
             color = it["color"]
             qty = int(it.get("quantity", 1))
 
-            # Parse dimensions from name (robust)
+            # Parse then apply default-filling strategy
             L, W, H = infer_dims_from_name(part.get("name", ""))
-
-            # If we have L/W but H is None, force 5 mm
-            if (L is not None or W is not None) and H is None:
-                H = DEFAULT_H_IF_MISSING
+            L, W, H = fill_dims_with_defaults_or_studs(L, W, H)
 
             img_path = ensure_image(part["part_num"], color["id"], part.get("part_img_url"))
 
@@ -256,7 +232,7 @@ def main():
     agg = (df.groupby(["Part ID", "Part Name", "Color", "Color ID"], as_index=False)
              .agg(Quantity=("Quantity", "sum"),
                   **{"Length (mm)": ("Length (mm)", first_nonnull),
-                     "Width (mm)":  ("Width (mm)", first_nonnull),
+                     "Width (mm)":  ("Width (mm)",  first_nonnull),
                      "Height (mm)": ("Height (mm)", first_nonnull)},
                   **{"Image File": ("Image File", first_nonnull)}))
 
@@ -273,22 +249,22 @@ def main():
     # Canonical JSON handoff for lego_sorter.py
     agg_records = []
     for _, r in agg.iterrows():
+        L = float(r["Length (mm)"]) if pd.notna(r["Length (mm)"]) else None
+        W = float(r["Width (mm)"])  if pd.notna(r["Width (mm)"])  else None
+        H = float(r["Height (mm)"]) if pd.notna(r["Height (mm)"]) else None
+        L, W, H = fill_dims_with_defaults_or_studs(L, W, H)
         rec = {
             "part_id": str(r["Part ID"]),
             "part_name": str(r["Part Name"]),
             "color": str(r["Color"]),
             "color_id": int(r["Color ID"]),
             "quantity": int(r["Quantity"]),
-            "length_mm": float(r["Length (mm)"]) if pd.notna(r["Length (mm)"]) else None,
-            "width_mm":  float(r["Width (mm)"])  if pd.notna(r["Width (mm)"])  else None,
-            "height_mm": float(r["Height (mm)"]) if pd.notna(r["Height (mm)"]) else None,
+            "length_mm": L,
+            "width_mm":  W,
+            "height_mm": H,
+            "volume_each_mm3": L * W * H,
             "image_file": str(r["Image File"]) if isinstance(r["Image File"], str) else ""
         }
-        # per-piece volume if available
-        if all(v is not None for v in (rec["length_mm"], rec["width_mm"], rec["height_mm"])):
-            rec["volume_each_mm3"] = rec["length_mm"] * rec["width_mm"] * rec["height_mm"]
-        else:
-            rec["volume_each_mm3"] = None
         agg_records.append(rec)
 
     Path(OUT_JSON).write_text(json.dumps({"parts": agg_records}, indent=2), encoding="utf-8")
