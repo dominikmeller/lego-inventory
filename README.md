@@ -24,6 +24,7 @@ A small toolkit to fetch LEGO set inventories, cache part images, and plan color
   - `--sets-file <path>`: read set numbers (default `sets.txt`).
   - `--no-images`: skip image downloads (use cached if present).
   - `--refresh-images`: force re-download images.
+  - `--refresh-cache`: refresh API cache (set details/parts) instead of using `cache/`.
   - `--no-prompt`: do not ask to run sorter after export.
   - `--verbose | --quiet | --progress-json <path>`: script-level progress controls.
 - Exports:
@@ -44,7 +45,9 @@ A small toolkit to fetch LEGO set inventories, cache part images, and plan color
   - `--no-pdf`, `--no-md`, `--purchase-only` to limit exports.
   - `--verbose | --quiet | --progress-json <path>` for progress.
   - `--storage <path>` to load a custom storage system YAML (default `storage_system.yaml`).
-  - `--price-1310 <PLN>` to override 1310 price (default 138.0); 1310 drawers are enabled by default.
+  - `--price-1310 <PLN>` override 1310 price (default 138.0); 1310 drawers enabled by default.
+  - `--cost-optimisation` evaluate all rack combinations, pick cheapest; writes a CSV summary.
+  - `--compare-out <csv>` path for rack mix comparison (default `racks_compare.csv`).
 
 ## Drawer Model & Costs
 - Usable fill factor `UTIL = 0.80`.
@@ -52,6 +55,43 @@ A small toolkit to fetch LEGO set inventories, cache part images, and plan color
   - SMALL `133×62×37`, MED `133×133×37`, DEEP `133×133×80`
   - 1310 system drawers: S1310 `160×86×39`, L1310 `223×160×39`, L1310_DEEP `223×160×85`
 - Units and prices are defined in `storage_system.yaml` and rendered dynamically in `purchase-order.md`.
+
+## Pipeline Overview
+- Inventory pipeline:
+  - Load set list (CLI or `sets.txt`), read API key from `.env`.
+  - Use on-disk API cache in `cache/` when available; only sleep between API calls when not cached.
+  - Fetch set details and parts, infer dimensions from names, cache images to `images/`.
+  - Export `.xlsx`, `.md`, and `aggregated_inventory.json` (the sorter input).
+- Sorter pipeline:
+  - Load aggregated JSON, normalize dimensions, compute per-piece volumes.
+  - Pack by color into configured drawer kinds; accurate 1310 sizes supported.
+  - Optimise unit purchase:
+    - Default: mixed 520/5244 (and 1310 for its kinds).
+    - With `--cost-optimisation`: evaluate all rack subsets from YAML, repack per subset, and choose the lowest cost plan.
+  - Export Markdown/PDF plan and a purchase order with dynamic unit composition, links, and costs.
+
+## Design Choices
+- Conservative fit: axis-aligned compare of known dims; fallback dims for unknowns; tyre/wheel mm parsing; studs→mm mapping.
+- Utilisation factor: 0.80 of nominal drawer volume to avoid overfill.
+- Deterministic ordering: stable sorts for parts, colors, and output items for reproducibility.
+- Config-driven storage: all drawer kinds and racks come from YAML (with sensible built-ins).
+- Accurate 1310 modelling: distinct kind sizes (S1310/L1310/L1310_DEEP) and rack composition.
+- Graceful deps: PDF export degrades if ReportLab missing; YAML overrides require PyYAML.
+- Progress: `--verbose/--quiet/--progress-json` for both scripts.
+
+## Rebrickable API Token (quick tutorial)
+1) Create an account at https://rebrickable.com, then go to Account → My Profile → API.
+2) Create an API Key. Copy the generated key string.
+3) Save it locally so scripts can pick it up:
+   - Put it in `.env` at the repo root:
+     - `REBRICKABLE_API_KEY=your_api_key_here`
+   - Or export in your shell before running:
+     - `export REBRICKABLE_API_KEY=your_api_key_here`
+4) Run the inventory script. If the key is not set, it will prompt you to enter it interactively.
+
+Optional screenshots to include (place in `docs/screenshots/` and reference here):
+- docs/screenshots/rebrickable-api-nav.png (where to find the API page)
+- docs/screenshots/rebrickable-api-key.png (example API key view)
 
 ## Testing & Quality
 - Tests (if present): `pytest -q`

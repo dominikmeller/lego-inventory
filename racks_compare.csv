@@ -1,0 +1,8 @@
+subset,feasible,total_cost_pln,units,kinds_used
+520,False,inf,{},SMALL
+5244,False,inf,{},"DEEP,MED,SMALL"
+520+5244,False,inf,{},"DEEP,MED,SMALL"
+1310,True,2346.00,"{""1310"": 17}","L1310,L1310_DEEP,S1310"
+520+1310,True,1764.00,"{""520"": 12, ""1310"": 4}","L1310,L1310_DEEP,S1310,SMALL"
+5244+1310,True,6071.00,"{""5244"": 61, ""1310"": 2}","DEEP,L1310,L1310_DEEP,MED,S1310,SMALL"
+520+5244+1310,True,1678.00,"{""520"": 12, ""5244"": 2, ""1310"": 2}","DEEP,L1310,L1310_DEEP,MED,S1310,SMALL"

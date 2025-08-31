@@ -25,6 +25,7 @@ Progress Reporting (script-level)
 """
 
 import argparse
+import csv
 import json
 import math
 import re
@@ -224,6 +225,116 @@ def apply_storage_config(path: str) -> None:
                 new_racks[str(code)] = entry
         if new_racks:
             RACKS = new_racks
+
+
+def _pack_with_types(parts: List["Part"], strategy: str, allowed_kinds: List[str]) -> Tuple[Dict[str, Dict[str, List["Drawer"]]], Dict[str, Dict[str, Tuple[float, float, float]]]]:
+    """Temporarily restrict drawer types to allowed_kinds, pack, and restore.
+
+    Returns (packed, types_used) where types_used is a mapping of kind->dims used.
+    """
+    global DRAWER_TYPES, CAPACITY
+    old_types, old_cap = DRAWER_TYPES, CAPACITY
+    try:
+        filtered: Dict[str, Dict[str, Tuple[float, float, float]]] = {k: v for k, v in old_types.items() if k in allowed_kinds}
+        DRAWER_TYPES = filtered
+        CAPACITY = {k: capacity_mm3(v["dims"]) for k, v in DRAWER_TYPES.items()}
+        packed = pack_all(parts, strategy=strategy)
+        return packed, filtered
+    finally:
+        DRAWER_TYPES = old_types
+        CAPACITY = old_cap
+
+
+def _globally_unfit(parts: List["Part"]) -> List[bool]:
+    """Return list indicating which parts don't fit any currently defined kind."""
+    res: List[bool] = []
+    all_kinds = list(DRAWER_TYPES.keys())
+    for p in parts:
+        fits_any = any(p.fits_conservative(DRAWER_TYPES[k]["dims"]) for k in all_kinds)
+        res.append(not fits_any)
+    return res
+
+
+def _subset_feasible(parts: List["Part"], kinds: List[str], globally_unfit: Optional[List[bool]] = None) -> bool:
+    # A subset is feasible if every globally-fittable part fits at least one kind in the subset
+    for idx, p in enumerate(parts):
+        if globally_unfit and globally_unfit[idx]:
+            continue
+        fits_any = any(p.fits_conservative(DRAWER_TYPES[k]["dims"]) for k in kinds)
+        if not fits_any:
+            return False
+    return True
+
+
+def _solve_units_generic(need: Dict[str, int], racks_codes: List[str]) -> Dict[str, float]:
+    """Exact enumeration with pruning for small rack sets.
+
+    Returns mapping {code: count, cost: total_cost}. Infeasible kinds are allowed
+    only if their need is zero or no rack covers them.
+    """
+    racks_list = [ (code, RACKS[code]) for code in racks_codes if code in RACKS ]
+    # Filter out racks that cover nothing needed
+    racks_list = [ (code, info) for code, info in racks_list if any(need.get(k,0) > 0 and info["drawers"].get(k,0) > 0 for k in need.keys()) ] or racks_list
+
+    codes = [code for code, _ in racks_list]
+    drawers_list = [info["drawers"] for _, info in racks_list]
+    prices = [info.get("price_pln", 0.0) for _, info in racks_list]
+
+    # Upper bounds per rack
+    ubs: List[int] = []
+    for dmap in drawers_list:
+        ub = 0
+        for k, n in need.items():
+            if n <= 0:
+                continue
+            per = dmap.get(k, 0)
+            if per > 0:
+                ub = max(ub, math.ceil(n / per))
+        ubs.append(ub if ub > 0 else max(1, 0))
+
+    # Cheap lower-bound table: cost per drawer per kind (cheapest rack covering that kind)
+    cheapest_per_kind: Dict[str, float] = {}
+    for k, n in need.items():
+        best_cpd = float("inf")
+        for (code, dmap), price in zip(racks_list, prices):
+            per = dmap.get(k, 0)
+            if per > 0:
+                best_cpd = min(best_cpd, price / per)
+        cheapest_per_kind[k] = best_cpd
+
+    best_cost = float("inf")
+    best_counts: List[int] = [0]*len(codes)
+
+    def dfs(i: int, coverage: Dict[str, int], counts: List[int], cost_so_far: float):
+        nonlocal best_cost, best_counts
+        # Simple cost prune only
+        if cost_so_far >= best_cost:
+            return
+        if i == len(codes):
+            # Check feasibility
+            if all(coverage.get(k, 0) >= need.get(k, 0) for k in need.keys()):
+                best_cost = cost_so_far
+                best_counts = counts.copy()
+            return
+        # Try 0..ub for this rack
+        code = codes[i]
+        dmap = drawers_list[i]
+        price = prices[i]
+        for x in range(0, ubs[i] + 1):
+            new_cov = coverage.copy()
+            if x > 0:
+                for k, per in dmap.items():
+                    if per > 0:
+                        new_cov[k] = new_cov.get(k, 0) + per * x
+            counts[i] = x
+            dfs(i+1, new_cov, counts, cost_so_far + x * price)
+        counts[i] = 0
+
+    dfs(0, {}, [0]*len(codes), 0.0)
+    sol: Dict[str, float] = {"cost": best_cost}
+    for code, x in zip(codes, best_counts):
+        sol[code] = x
+    return sol
 
 # ---------- Defaults & Parsers ----------
 STUD_MM = 8.0
@@ -806,10 +917,15 @@ def main():
     ap.add_argument("--no-pdf", action="store_true", help="Skip PDF export")
     ap.add_argument("--no-md", action="store_true", help="Skip Markdown export")
     ap.add_argument("--purchase-only", action="store_true", help="Only output purchase-order.md")
-    # 1310 support is enabled by default; price can be overridden
-    ap.add_argument("--enable-1310", action="store_true", default=True, help="Enable 1310 drawer sizes and allow purchasing 1310 units (enabled by default)")
-    ap.add_argument("--price-1310", type=float, default=138.0, help="Price (PLN) for 1310 unit (default: 138.0)")
+    # 1310 toggle flags (enabled by default); provide price override
+    group_1310 = ap.add_mutually_exclusive_group()
+    group_1310.add_argument("--enable-1310", dest="use_1310", action="store_true", help="Enable 1310 drawer sizes and allow purchasing 1310 units")
+    group_1310.add_argument("--disable-1310", dest="use_1310", action="store_false", help="Disable 1310 drawers and units")
+    ap.set_defaults(use_1310=True)
+    ap.add_argument("--price-1310", type=float, default=138.0, help="Price (PLN) for 1310 unit when enabled (default: 138.0)")
     ap.add_argument("--storage", default="storage_system.yaml", help="Path to storage system YAML to override defaults")
+    ap.add_argument("--cost-optimisation", action="store_true", help="Evaluate all rack combinations and pick the cheapest; save CSV comparison")
+    ap.add_argument("--compare-out", default="racks_compare.csv", help="CSV path for rack mix comparison when cost optimisation is enabled")
     args = ap.parse_args()
 
     prog = ProgressReporter(script="sorter", quiet=args.quiet, verbose=args.verbose, json_path=args.progress_json)
@@ -817,9 +933,20 @@ def main():
     if not Path(args.json).exists():
         raise FileNotFoundError(f"{args.json} not found. Run lego_inventory.py first.")
 
-    # Enable 1310 sizes by default (honor override price), then apply YAML overrides
-    enable_1310(args.price_1310)
+    # Load YAML overrides first
     apply_storage_config(args.storage)
+    # Then apply 1310 toggle
+    if args.use_1310:
+        # If 1310 not present, add built-in sizes and rack with given price
+        if "S1310" not in DRAWER_TYPES or "1310" not in RACKS:
+            enable_1310(args.price_1310)
+    else:
+        # Remove 1310 kinds and racks if present
+        for k in ("S1310", "L1310", "L1310_DEEP"):
+            if k in DRAWER_TYPES:
+                DRAWER_TYPES.pop(k, None)
+        RACKS.pop("1310", None)
+        CAPACITY = {k: capacity_mm3(v["dims"]) for k, v in DRAWER_TYPES.items()}
 
     st_load = prog.start("Load JSON")
     parts = load_parts(args.json)
@@ -829,10 +956,63 @@ def main():
     packed = pack_all(parts, strategy=args.pack_strategy)
     prog.end(st_pack)
 
-    st_opt = prog.start("Optimize units")
-    totals = count_drawers(packed)
-    solution = optimize_units(totals)
-    prog.end(st_opt)
+    # Cost optimisation across rack subsets (optional)
+    if args.cost_optimisation:
+        st_mix = prog.start("Evaluate rack mixes")
+        # Build subsets (all non-empty combinations)
+        rack_codes = [code for code in RACKS.keys()]
+        subsets: List[List[str]] = []
+        for mask in range(1, 1 << len(rack_codes)):
+            subset = [rack_codes[i] for i in range(len(rack_codes)) if (mask >> i) & 1]
+            subsets.append(subset)
+
+        rows: List[List[str]] = []
+        best_tuple = (float("inf"), None, None, None)  # (cost, subset, packed_best, solution)
+
+        glob_unfit = _globally_unfit(parts)
+
+        for subset in subsets:
+            kinds = sorted({k for code in subset for k in RACKS[code]["drawers"].keys()})
+            # Feasibility check
+            feasible = _subset_feasible(parts, kinds, globally_unfit=glob_unfit)
+            if not feasible:
+                rows.append(["+".join(subset), "False", "inf", "{}", ",".join(kinds)])
+                continue
+            packed_s, _ = _pack_with_types(parts, args.pack_strategy, kinds)
+            need_s = count_drawers(packed_s)
+            # Remove kinds not in subset
+            need_s = {k: v for k, v in need_s.items() if k in kinds}
+            sol_s = _solve_units_generic(need_s, subset)
+            cost_s = sol_s.get("cost", float("inf"))
+            units_s = {k: int(v) for k, v in sol_s.items() if k != "cost" and int(v) > 0}
+            rows.append(["+".join(subset), "True", f"{cost_s:.2f}", json.dumps(units_s, ensure_ascii=False), ",".join(kinds)])
+            if cost_s < best_tuple[0]:
+                best_tuple = (cost_s, subset, packed_s, sol_s)
+
+        # Write CSV
+        try:
+            with open(args.compare_out, "w", encoding="utf-8", newline="") as f:
+                w = csv.writer(f)
+                w.writerow(["subset", "feasible", "total_cost_pln", "units", "kinds_used"])
+                w.writerows(rows)
+        except Exception:
+            pass
+
+        prog.end(st_mix)
+
+        # Adopt best subset plan
+        if best_tuple[1] is not None:
+            packed = best_tuple[2]  # type: ignore
+            totals = count_drawers(packed)
+            solution = best_tuple[3]  # type: ignore
+        else:
+            totals = count_drawers(packed)
+            solution = optimize_units(totals)
+    else:
+        st_opt = prog.start("Optimize units")
+        totals = count_drawers(packed)
+        solution = optimize_units(totals)
+        prog.end(st_opt)
 
     st_export = prog.start("Export files")
     export_purchase_order(solution, totals)
