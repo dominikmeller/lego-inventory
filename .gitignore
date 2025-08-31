@@ -1,0 +1,39 @@
+.aider*
+.env
+
+cache/
+images/
+ldraw_parts/
+venv/
+*.zip
+*.xlsx
+*.json
+*.txt
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Tool-specific caches
+.mypy_cache/
+.pytest_cache/
+.cache/
+
+# Packaging artefacts
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# IDE / editor settings
+.idea/
+.vscode/
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+!aggregated_inventory.json
+.DS_Store
+container_plan.pdf
+*.json
