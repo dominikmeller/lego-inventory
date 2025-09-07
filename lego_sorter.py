@@ -982,7 +982,14 @@ def optimize_units(drawers_needed: Dict[str, int]) -> Dict[str, float]:
 
 # ---------- Exports ----------
 def export_purchase_order(
-    solution: Dict[str, int], totals: Dict[str, int], path="purchase-order.md", *, plan_md: Optional[str] = None, plan_pdf: Optional[str] = None
+    solution: Dict[str, int],
+    totals: Dict[str, int],
+    path: str = "purchase-order.md",
+    *,
+    plan_md: Optional[str] = None,
+    plan_pdf: Optional[str] = None,
+    used_volume_mm3: Optional[float] = None,
+    purchased_capacity_mm3: Optional[float] = None,
 ):
     cost = solution.get("cost", 0.0)
 
@@ -1055,6 +1062,16 @@ def export_purchase_order(
         f.write("- Inventory (Markdown): [lego_inventory.md](lego_inventory.md)\n")
         f.write("- Aggregated Inventory JSON: [aggregated_inventory.json](aggregated_inventory.json)\n")
 
+        # Volume summary (optional)
+        if isinstance(used_volume_mm3, (int, float)) or isinstance(purchased_capacity_mm3, (int, float)):
+            uv = float(used_volume_mm3 or 0.0)
+            pc = float(purchased_capacity_mm3 or 0.0)
+            pct = int(100 * uv / pc) if pc > 0 else 0
+            f.write("\n## Volume Summary\n")
+            f.write(f"- Packed volume: {uv:.0f} mm³ ({uv/1e6:.2f} L)\n")
+            f.write(f"- Purchased capacity (at max-fill): {pc:.0f} mm³ ({pc/1e6:.2f} L)\n")
+            f.write(f"- Utilization: {pct}%\n")
+
         f.write("\n## Shop Links\n")
         for code, info in RACKS.items():
             link = info.get("link")
@@ -1093,6 +1110,10 @@ def export_purchase_order(
                 },
                 "racks": summary_racks,
                 "drawer_usage": {k: int(v) for k, v in totals.items()},
+                "volume_mm3": {
+                    "packed": float(used_volume_mm3 or 0.0),
+                    "purchased_capacity": float(purchased_capacity_mm3 or 0.0),
+                },
             }
 
             f.write("\n## Machine-Readable Summary (YAML)\n")
@@ -1226,6 +1247,8 @@ def export_plan_pdf(
         if need_space(3):
             new_page()
         img = item.get("Image File") or ""
+        vol_e = item.get("VolEach_mm3")
+        vol_t = item.get("VolTotal_mm3")
         if img and Path(img).exists():
             try:
                 c.drawImage(
@@ -1242,13 +1265,21 @@ def export_plan_pdf(
             c.setFont("Helvetica", 10)
             c.drawString(margin + 24, y - 6, f"{item['Part Name']} x{item['Qty']}")
             c.setFont("Helvetica-Oblique", 8)
-            c.drawString(margin + 24, y - 18, f"{item['Part ID']}")
+            if isinstance(vol_e, (int, float)) and isinstance(vol_t, (int, float)):
+                c.drawString(margin + 24, y - 18, f"{item['Part ID']} • v_each: {vol_e:.0f} mm3 • v_total: {vol_t:.0f} mm3")
+            else:
+                c.drawString(margin + 24, y - 18, f"{item['Part ID']}")
             y -= 26
         else:
             c.setFont("Helvetica", 10)
-            c.drawString(
-                margin, y, f"- {item['Part Name']} x{item['Qty']} ({item['Part ID']})"
-            )
+            if isinstance(vol_e, (int, float)) and isinstance(vol_t, (int, float)):
+                c.drawString(
+                    margin, y, f"- {item['Part Name']} x{item['Qty']} ({item['Part ID']}) • v_each: {vol_e:.0f} mm3 • v_total: {vol_t:.0f} mm3"
+                )
+            else:
+                c.drawString(
+                    margin, y, f"- {item['Part Name']} x{item['Qty']} ({item['Part ID']})"
+                )
             y -= 12
 
     h1("LEGO Container Plan (Color-sorted)")
@@ -1267,6 +1298,15 @@ def export_plan_pdf(
                 h3(f"Drawer {i}")
                 for item in sorted(dr.items, key=lambda it: (str(it.get('Part ID','')), str(it.get('Part Name','')))):
                     item_line(item)
+                # Drawer totals and verification line
+                eff_cap = CAPACITY.get(kind_label, 0.0) * PACK_MAX_FILL
+                c.setFont("Helvetica-Oblique", 8)
+                pct_eff = int(100 * (dr.used / eff_cap)) if eff_cap > 0 else 0
+                status = "OK" if dr.used <= eff_cap + 1e-6 else "OVER"
+                if need_space(2):
+                    new_page()
+                c.drawString(margin, y, f"Total volume: {dr.used:.0f} mm3 / allowed {eff_cap:.0f} mm3 ({pct_eff}%) — {status}")
+                y -= 12
 
     c.save()
 
@@ -1564,7 +1604,35 @@ def main():
     _duplo_stem, _duplo_ext = Path(_duplo_name).stem, Path(_duplo_name).suffix or ".md"
     duplo_path = out_dir / f"{ts}-{_duplo_stem}-{storage_label}{_duplo_ext}"
 
-    export_purchase_order(solution, totals, path=str(po_path), plan_md=md_path.name, plan_pdf=pdf_path.name)
+    # Compute volume metrics
+    total_used_mm3 = 0.0
+    for _, by_type in packed.items():
+        for _, drawers in by_type.items():
+            for dr in drawers:
+                total_used_mm3 += float(dr.used or 0.0)
+    purchased_capacity_mm3 = 0.0
+    for code, val in solution.items():
+        if code == "cost":
+            continue
+        cnt = int(val)
+        if cnt <= 0:
+            continue
+        if code in DRAWER_TYPES:
+            purchased_capacity_mm3 += cnt * CAPACITY.get(code, 0.0) * PACK_MAX_FILL
+        elif code in RACKS:
+            dmap = RACKS.get(code, {}).get("drawers", {}) or {}
+            for kind, per in dmap.items():
+                purchased_capacity_mm3 += cnt * int(per) * CAPACITY.get(kind, 0.0) * PACK_MAX_FILL
+
+    export_purchase_order(
+        solution,
+        totals,
+        path=str(po_path),
+        plan_md=md_path.name,
+        plan_pdf=pdf_path.name,
+        used_volume_mm3=total_used_mm3,
+        purchased_capacity_mm3=purchased_capacity_mm3,
+    )
     if not args.purchase_only and not args.no_md:
         export_plan_md(packed, path=str(md_path))
     if not args.purchase_only and not args.no_pdf:

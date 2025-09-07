@@ -351,6 +351,7 @@ def main():
     ap.add_argument("--no-images", action="store_true", help="Skip downloading part images (use existing cache if present)")
     ap.add_argument("--refresh-images", action="store_true", help="Force re-download of all part images")
     ap.add_argument("--refresh-cache", action="store_true", help="Force refresh of API cache for set details and parts")
+    ap.add_argument("--output-dir", default="output", help="Directory to write timestamped copies of exports (default: output)")
     args = ap.parse_args()
 
     api_key = load_api_key()
@@ -474,18 +475,43 @@ def main():
         }
         agg_records.append(rec)
 
-    Path(OUT_JSON).write_text(json.dumps({"parts": agg_records}, indent=2), encoding="utf-8")
+    json_payload = json.dumps({"parts": agg_records}, indent=2)
+    Path(OUT_JSON).write_text(json_payload, encoding="utf-8")
 
     prog.end(st_agg)
 
+    # Write timestamped copies into output directory
+    out_dir = Path(args.output_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    ts = time.strftime("%Y%m%d-%H%M%S")
+    xlsx_ts = out_dir / f"{ts}-lego_inventory.xlsx"
+    md_ts = out_dir / f"{ts}-lego_inventory.md"
+    json_ts = out_dir / f"{ts}-aggregated_inventory.json"
+    # Save copies
+    try:
+        with pd.ExcelWriter(xlsx_ts) as w:
+            df.to_excel(w, sheet_name="Inventory", index=False)
+            agg.to_excel(w, sheet_name="Aggregated", index=False)
+    except Exception:
+        pass
+    try:
+        md_ts.write_text(Path(OUT_MD).read_text(encoding="utf-8"), encoding="utf-8")
+    except Exception:
+        pass
+    try:
+        json_ts.write_text(json_payload, encoding="utf-8")
+    except Exception:
+        pass
+
     st_export = prog.start("Export files")
-    outputs = [OUT_XLSX, OUT_MD, OUT_JSON]
+    outputs = [OUT_XLSX, OUT_MD, OUT_JSON, str(xlsx_ts), str(md_ts), str(json_ts)]
     st_export.items_done = len(outputs)
     st_export.items_total = len(outputs)
     prog.end(st_export)
 
     if not args.quiet:
         print(f"✅ Saved: {OUT_XLSX}, {OUT_MD}, {OUT_JSON}")
+        print(f"✅ Timestamped copies: {xlsx_ts.name}, {md_ts.name}, {json_ts.name} → {out_dir}")
 
     # Optional: run sorter now
     # Finalize progress before optional sorter run
