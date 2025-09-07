@@ -310,6 +310,18 @@ def main() -> None:
     args = ap.parse_args()
 
     frame_code, frames_count, basket_kind, baskets_total, racks, rack_slots = parse_source(args.source)
+    # Derive label and timestamp early for titles and filenames
+    ts = time.strftime("%Y%m%d-%H%M%S")
+    label = (args.label or "").strip() if args.label else None
+    if not label:
+        stem = Path(args.source).stem
+        m = re.search(r"-purchase-order-(.+)$", stem)
+        label = m.group(1) if m else stem
+    try:
+        import re as _re
+        label = _re.sub(r"[^A-Za-z0-9]+", "-", label).strip("-") or "trofast"
+    except Exception:
+        label = "trofast"
     # Per-frame basket capacity
     per_frame_slots = rack_slots or SLOTS_PER_FRAME_VISUAL
 
@@ -337,21 +349,11 @@ def main() -> None:
         print(str(layout))
 
     print("\nC) FRONT DIAGRAM (SVG)")
-    svg_str = render_svg(layout, title="TROFAST Plan")
+    svg_title = f"TROFAST Plan — {label} — {ts}"
+    svg_str = render_svg(layout, title=svg_title)
     print(svg_str)
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    ts = time.strftime("%Y%m%d-%H%M%S")
-    label = (args.label or "").strip() if args.label else None
-    if not label:
-        stem = Path(args.source).stem
-        m = re.search(r"-purchase-order-(.+)$", stem)
-        label = m.group(1) if m else stem
-    try:
-        import re as _re
-        label = _re.sub(r"[^A-Za-z0-9]+", "-", label).strip("-") or "trofast"
-    except Exception:
-        label = "trofast"
     svg_path = out_dir / f"{ts}-trofast_fitting-{label}.svg"
     png_path = out_dir / f"{ts}-trofast_fitting-{label}.png"
     try:

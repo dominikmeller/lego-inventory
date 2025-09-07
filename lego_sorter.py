@@ -35,6 +35,8 @@ from typing import Dict, List, Optional, Tuple
 
 import sys
 import time
+import subprocess
+import hashlib
 try:
     import yaml  # type: ignore
 except Exception:
@@ -148,6 +150,31 @@ CAPACITY = {k: capacity_mm3(v["dims"]) for k, v in DRAWER_TYPES.items()}
 
 # Packing headroom cap (fraction of capacity allowed to be used per drawer)
 PACK_MAX_FILL: float = 1.0
+
+
+# ---------- Run metadata helpers ----------
+def _get_git_info() -> Optional[Dict[str, object]]:
+    try:
+        sha = subprocess.check_output(["git", "rev-parse", "HEAD"], stderr=subprocess.DEVNULL).decode("utf-8").strip()
+        status = subprocess.check_output(["git", "status", "--porcelain"], stderr=subprocess.DEVNULL).decode("utf-8")
+        dirty = bool(status.strip())
+        try:
+            branch = subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"], stderr=subprocess.DEVNULL).decode("utf-8").strip()
+        except Exception:
+            branch = None
+        return {"commit": sha, "dirty": dirty, "branch": branch}
+    except Exception:
+        return None
+
+def _sha256_file(path: Path) -> Optional[str]:
+    try:
+        h = hashlib.sha256()
+        with path.open("rb") as f:
+            for chunk in iter(lambda: f.read(1024 * 1024), b""):
+                h.update(chunk)
+        return h.hexdigest()
+    except Exception:
+        return None
 
 # ---------- Racks (units) ----------
 RACKS = {
@@ -990,6 +1017,7 @@ def export_purchase_order(
     plan_pdf: Optional[str] = None,
     used_volume_mm3: Optional[float] = None,
     purchased_capacity_mm3: Optional[float] = None,
+    meta: Optional[Dict[str, object]] = None,
 ):
     cost = solution.get("cost", 0.0)
 
@@ -1115,6 +1143,12 @@ def export_purchase_order(
                     "purchased_capacity": float(purchased_capacity_mm3 or 0.0),
                 },
             }
+            if meta is not None:
+                # Keep meta compact: ensure JSON-serializable builtins only
+                try:
+                    yaml_payload["meta"] = meta
+                except Exception:
+                    pass
 
             f.write("\n## Machine-Readable Summary (YAML)\n")
             f.write("```yaml\n")
@@ -1149,10 +1183,38 @@ def export_purchase_order(
 
 
 def export_plan_md(
-    packed: Dict[str, Dict[str, List[Drawer]]], path="container_plan.md"
+    packed: Dict[str, Dict[str, List[Drawer]]], path="container_plan.md", *, meta: Optional[Dict[str, object]] = None
 ):
     with open(path, "w", encoding="utf-8") as f:
         f.write("# Container Plan (Color-sorted)\n\n")
+        if meta:
+            # Compact run settings for quick comparisons
+            f.write("## Run Settings\n")
+            ts = str(meta.get("timestamp", "")) if isinstance(meta, dict) else ""
+            storage_label = str(meta.get("storage_label", "")) if isinstance(meta, dict) else ""
+            f.write(f"- Timestamp: {ts}\n")
+            if storage_label:
+                f.write(f"- Storage label: {storage_label}\n")
+            try:
+                args_meta = meta.get("args", {}) if isinstance(meta, dict) else {}
+            except Exception:
+                args_meta = {}
+            if isinstance(args_meta, dict):
+                # Show the key tunables if present
+                keys = [
+                    "pack_strategy",
+                    "min_fill",
+                    "max_fill",
+                    "rare_threshold",
+                    "mix_transparents",
+                    "mix_rare",
+                    "merge_trans_into_rare",
+                    "exclude_duplo",
+                ]
+                for k in keys:
+                    if k in args_meta:
+                        f.write(f"- {k}: {args_meta[k]}\n")
+            f.write("\n")
         for color, by_type in packed.items():
             f.write(f"## {color}\n\n")
             kind_order = sorted(
@@ -1604,6 +1666,29 @@ def main():
     _duplo_stem, _duplo_ext = Path(_duplo_name).stem, Path(_duplo_name).suffix or ".md"
     duplo_path = out_dir / f"{ts}-{_duplo_stem}-{storage_label}{_duplo_ext}"
 
+    # Build run metadata and sidecar
+    inv_path = Path(args.json)
+    run_meta: Dict[str, object] = {
+        "timestamp": ts,
+        "command": " ".join(sys.argv),
+        "args": {k: getattr(args, k) for k in vars(args).keys()},
+        "storage_label": storage_label,
+        "storage_config": str(args.storage),
+        "output_dir": str(out_dir),
+        "inventory_file": str(inv_path),
+        "inventory_hash": _sha256_file(inv_path),
+        "git": _get_git_info(),
+        "pack_max_fill": PACK_MAX_FILL,
+        "drawer_types": {k: {"dims_mm": list(DRAWER_TYPES[k]["dims"]), **({"price_pln": float(DRAWER_TYPES[k]["price_pln"]) } if isinstance(DRAWER_TYPES.get(k, {}).get("price_pln"), (int, float)) else {})} for k in DRAWER_TYPES},
+        "racks": RACKS,
+    }
+    # Sidecar JSON
+    sidecar_path = out_dir / f"{ts}-{storage_label}-run_meta.json"
+    try:
+        sidecar_path.write_text(json.dumps(run_meta, indent=2), encoding="utf-8")
+    except Exception:
+        pass
+
     # Compute volume metrics
     total_used_mm3 = 0.0
     for _, by_type in packed.items():
@@ -1632,9 +1717,10 @@ def main():
         plan_pdf=pdf_path.name,
         used_volume_mm3=total_used_mm3,
         purchased_capacity_mm3=purchased_capacity_mm3,
+        meta=run_meta,
     )
     if not args.purchase_only and not args.no_md:
-        export_plan_md(packed, path=str(md_path))
+        export_plan_md(packed, path=str(md_path), meta=run_meta)
     if not args.purchase_only and not args.no_pdf:
         export_plan_pdf(packed, path=str(pdf_path))
     if args.exclude_duplo and excluded_duplo:
