@@ -23,6 +23,7 @@ import argparse
 import math
 import re
 from dataclasses import dataclass
+import time
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
@@ -537,6 +538,8 @@ def render_png(layout_yaml: Dict, dims: Dict[str, Tuple[float, float, float]], o
 def main() -> None:
     ap = argparse.ArgumentParser(description="Fit Infinity Hearts organizers into 2× BILLY 80×106 cabinets.")
     ap.add_argument("--source", default="purchase-order.md", help="Path to purchase-order.md from sorter")
+    ap.add_argument("--output-dir", default="output", help="Directory to write SVG/PNG outputs (default: output)")
+    ap.add_argument("--label", default=None, help="Optional label to include in filenames; defaults parsed from --source")
     args = ap.parse_args()
 
     units, dims, parse_notes = parse_source(args.source)
@@ -577,11 +580,28 @@ def main() -> None:
         # basic fallback
         layout_yaml_str = str(layout_yaml)
 
-    # Render SVG and write file
+    # Render SVG and write file (timestamped in output dir)
+    out_dir = Path(args.output_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    ts = time.strftime("%Y%m%d-%H%M%S")
+    # Derive label from source path if not provided
+    label = (args.label or "").strip() if args.label else None
+    if not label:
+        stem = Path(args.source).stem
+        m = re.search(r"-purchase-order-(.+)$", stem)
+        label = m.group(1) if m else stem
+    try:
+        import re as _re
+        label = _re.sub(r"[^A-Za-z0-9]+", "-", label).strip("-") or "billy"
+    except Exception:
+        label = "billy"
+    svg_path = out_dir / f"{ts}-billy_fitting-{label}.svg"
+    png_path = out_dir / f"{ts}-billy_fitting-{label}.png"
+
     svg_str = render_svg(layout_yaml, dims)
     svg_saved = False
     try:
-        Path("billy_fitting.svg").write_text(svg_str, encoding="utf-8")
+        svg_path.write_text(svg_str, encoding="utf-8")
         svg_saved = True
     except Exception:
         svg_saved = False
@@ -612,13 +632,13 @@ def main() -> None:
     print("\nC) FRONT DIAGRAM (SVG)")
     print(svg_str)
     if svg_saved:
-        print("\n[Saved billy_fitting.svg]")
+        print(f"\n[Saved {svg_path.name} in {out_dir}]")
     else:
         print("\n[Could not write billy_fitting.svg]")
     # Generate PNG file from the diagram
-    png_ok = render_png(layout_yaml, dims, "billy_fitting.png")
+    png_ok = render_png(layout_yaml, dims, str(png_path))
     if png_ok:
-        print("\n[Saved billy_fitting.png]")
+        print(f"\n[Saved {png_path.name} in {out_dir}]")
     else:
         print("\n[Could not write billy_fitting.png — install cairosvg or Pillow]")
 

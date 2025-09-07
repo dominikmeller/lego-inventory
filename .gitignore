@@ -5,10 +5,13 @@ cache/
 images/
 ldraw_parts/
 venv/
+output/
 *.zip
 *.xlsx
 *.json
+*.html
 sets.txt
+
 
 
 # Byte-compiled / optimized / DLL files

@@ -1,0 +1,32 @@
+# Storage system configuration — TROFAST (mesh 10 cm only)
+#
+# Usage:
+#   python lego_sorter.py --storage storage_trofast.yaml
+#
+# Notes:
+# - Uses only the TROFAST mesh basket 42×30×10 cm (SKU 405.300.74).
+# - Models a 3‑column 99×44×94 cm frame fully populated with 10 cm baskets (18 total).
+# - Price is calculated from IKEA web prices: frame (10091453) + 18 × basket (40530074).
+
+storage:
+  util: 1.00
+
+  # Drawer type(s): internal clear dimensions in millimetres
+  drawer_types:
+    TROFAST_SHALLOW:
+      dims_mm: [420.0, 300.0, 100.0]
+      price_pln: 30.0
+      title: "TROFAST mesh basket 42×30×10 cm (gray-blue)"
+      link: https://www.ikea.com/pl/pl/p/trofast-pojemnik-druciany-szaroniebieski-40530074/
+
+  # Rack (combo) definition: 3 columns × 6 rows = 18 baskets
+  racks:
+    TROFAST_FRAME_99x44x94:
+      drawers: { TROFAST_SHALLOW: 18 }
+      frame_only: true
+      # Price breakdown from IKEA (PL):
+      # - Frame 99×44×94 (10091453): 279 PLN (frame without drawers)
+      #   https://www.ikea.com/pl/pl/p/trofast-rama-bialy-10091453/
+      price_pln: 279.0
+      link: https://www.ikea.com/pl/pl/p/trofast-rama-bialy-10091453/
+      external_cm: [99.0, 44.0, 94.0]
