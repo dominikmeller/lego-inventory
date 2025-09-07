@@ -22,8 +22,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/your-org/lego-inventory"
-Issues = "https://github.com/your-org/lego-inventory/issues"
+Homepage = "https://github.com/dominikmeller/lego-inventory"
+Issues = "https://github.com/dominikmeller/lego-inventory/issues"
 
 [tool.setuptools]
 include-package-data = true
@@ -37,4 +37,3 @@ lego-inventory = "lego_inventory.py"
 lego-sorter = "lego_sorter.py"
 billy-fitting = "billy-fitting.py"
 trofast-fitting = "trofast-fitting.py"
-

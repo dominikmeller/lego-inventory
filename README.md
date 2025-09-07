@@ -84,11 +84,11 @@ A small toolkit to fetch LEGO set inventories, cache part images, and plan color
 
 ### IKEA Product Links (Global Search)
 - TROFAST Mesh Basket 42×30×10 cm (SKU 40530074):
-  - https://www.ikea.com/search/?q=40530074
-- TROFAST Floor Frame 99×44×94 cm (search by article number from your region):
-  - Example article code: 100.914.53 → https://www.ikea.com/search/?q=10091453
+  - https://www.ikea.com/pl/pl/p/trofast-pojemnik-druciany-szaroniebieski-40530074/
+- TROFAST Floor Frame 99×44×94 cm:
+  - Example article code: 100.914.53 → https://www.ikea.com/pl/pl/p/trofast-rama-bialy-10091453/
 - BILLY Bookcase 80×106 cm (size varies slightly by region):
-  - https://www.ikea.com/search/?q=BILLY%2080%20106
+  - https://www.ikea.com/pl/pl/p/billy-regal-bialy-30263844/
 
 ## Drawer Model & Costs
 - Usable fill factor `UTIL = 0.80`.
