@@ -1825,7 +1825,7 @@ def main():
         _run_billy(str(po_path))
     elif not args.quiet:
         try:
-            ans = input("Run BILLY fitting planner now? (y/n): ").strip().lower()
+            ans = input("Run fitting planner now? (y/n): ").strip().lower()
             if ans == "y":
                 _run_billy(str(po_path))
         except (EOFError, KeyboardInterrupt):
