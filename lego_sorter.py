@@ -1465,6 +1465,27 @@ def main():
     ap.add_argument("--compare-out", default="racks_compare.csv", help="CSV path for rack mix comparison when cost optimisation is enabled (will be prefixed + placed in output dir)")
     ap.add_argument("--run-billy", action="store_true", help="After exports, run billy-fitting.py to produce BILLY layout from purchase-order.md")
     ap.add_argument("--run-trofast", action="store_true", help="After exports, run trofast-fitting.py to produce TROFAST frame layout from purchase-order.md")
+    # Presets / aliases
+    ap.add_argument(
+        "--preset-trofast-rare-split",
+        action="store_true",
+        help=(
+            "Alias: apply best-known TROFAST 'Good Rare Split (C)' parameters: "
+            "--storage storage_trofast.yaml --disable-1310 --exclude-duplo --mix-transparents "
+            "--mix-rare --rare-threshold 0.15 --min-fill 0.5 --max-fill 0.85 --merge-trans-into-rare "
+            "--pack-strategy balanced, and run trofast-fitting (PDF enabled)"
+        ),
+    )
+    ap.add_argument(
+        "--preset-billy-structured",
+        action="store_true",
+        help=(
+            "Alias: apply best-known BILLY 'Structured Coding' parameters (2-cabinet limit run): "
+            "--storage storage_system.yaml --disable-1310 --exclude-duplo --mix-transparents "
+            "--mix-rare --rare-threshold 0.45 --min-fill 0.5 --max-fill 1.0 --pack-strategy greedy, "
+            "and run billy-fitting (PDF enabled)"
+        ),
+    )
     ap.add_argument("--output-dir", default="output", help="Directory to write outputs into (default: output)")
     ap.add_argument(
         "--exclude-duplo",
@@ -1511,6 +1532,37 @@ def main():
     )
     args = ap.parse_args()
 
+    # Apply preset aliases (mutates args to enforce discovered best settings)
+    if getattr(args, "preset_trofast_rare_split", False):
+        args.storage = "storage_trofast.yaml"
+        args.use_1310 = False
+        args.exclude_duplo = True
+        args.mix_transparents = True
+        args.mix_rare = True
+        args.rare_threshold = 0.15
+        args.min_fill = 0.5
+        args.max_fill = 0.85
+        args.merge_trans_into_rare = True
+        args.pack_strategy = "balanced"
+        args.run_trofast = True
+        # Ensure PDFs are generated
+        args.no_pdf = False
+
+    if getattr(args, "preset_billy_structured", False):
+        args.storage = "storage_system.yaml"
+        args.use_1310 = False
+        args.exclude_duplo = True
+        args.mix_transparents = True
+        args.mix_rare = True
+        args.rare_threshold = 0.45
+        args.min_fill = 0.5
+        args.max_fill = 1.0
+        args.merge_trans_into_rare = False
+        args.pack_strategy = "greedy"
+        args.run_billy = True
+        # Ensure PDFs are generated
+        args.no_pdf = False
+
     # Prepare output directory + timestamp prefix + storage suffix
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -1528,7 +1580,7 @@ def main():
         args.progress_json = str(out_dir / f"{ts}-{storage_label}-{Path(args.progress_json).name}")
 
     # Apply max fill globally
-    global PACK_MAX_FILL
+    global PACK_MAX_FILL, CAPACITY
     try:
         PACK_MAX_FILL = max(0.1, min(1.0, float(args.max_fill)))
     except Exception:
