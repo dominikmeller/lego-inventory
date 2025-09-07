@@ -1,0 +1,46 @@
+{
+  "script": "sorter",
+  "started_at": 1757250993.1708832,
+  "ended_at": 1757251025.944343,
+  "elapsed_s": 32,
+  "steps": [
+    {
+      "name": "Load JSON",
+      "status": "completed",
+      "started_at": 1757250993.1729228,
+      "ended_at": 1757250993.198869,
+      "items_total": null,
+      "items_done": 0
+    },
+    {
+      "name": "Pack parts",
+      "status": "completed",
+      "started_at": 1757250993.204106,
+      "ended_at": 1757250993.228039,
+      "items_total": 4260,
+      "items_done": 0
+    },
+    {
+      "name": "Evaluate rack mixes",
+      "status": "completed",
+      "started_at": 1757250993.285235,
+      "ended_at": 1757250993.325043,
+      "items_total": null,
+      "items_done": 0
+    },
+    {
+      "name": "Export files",
+      "status": "completed",
+      "started_at": 1757250993.325474,
+      "ended_at": 1757251025.943379,
+      "items_total": null,
+      "items_done": 0
+    }
+  ],
+  "totals": {
+    "unique_items": 4260,
+    "pieces_total": 20101,
+    "colors": 4,
+    "outputs": 3
+  }
+}

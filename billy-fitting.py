@@ -15,6 +15,12 @@ Outputs to stdout the following sections:
   C) FRONT DIAGRAM (SVG)
   D) BILL OF MATERIALS
   E) TEXT SUMMARY
+
+Trademarks & Disclaimer
+- LEGO is a trademark of the LEGO Group of companies which does not sponsor, authorize or endorse this project.
+- IKEA is a trademark of Inter IKEA Systems B.V. referenced for compatibility and informational purposes only.
+- All product names, SKUs, and brand references are used solely to describe interoperability targets; all trademarks are the property of their respective owners.
+- This tool distributes no copyrighted content from those brands and is intended for personal, non‑commercial planning and educational use.
 """
 
 from __future__ import annotations

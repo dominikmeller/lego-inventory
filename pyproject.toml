@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lego-inventory-planner"
+version = "0.1.0"
+description = "LEGO inventory fetcher and color-sorted storage planner with TROFAST and BILLY visualizers"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [
+  { name = "LEGO Inventory & Drawer Planner contributors" }
+]
+dependencies = [
+  "pandas>=1.5.0",
+  "requests>=2.28.0",
+  "python-dotenv>=1.0.0",
+  "reportlab>=4.0.0",
+  "PyYAML>=6.0.0",
+  "Pillow>=10.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/lego-inventory"
+Issues = "https://github.com/your-org/lego-inventory/issues"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests*"]
+
+[tool.setuptools.scripts]
+lego-inventory = "lego_inventory.py"
+lego-sorter = "lego_sorter.py"
+billy-fitting = "billy-fitting.py"
+trofast-fitting = "trofast-fitting.py"
+

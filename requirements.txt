@@ -18,3 +18,4 @@ PyYAML>=6.0.0
 
 # Optional image rendering for billy-fitting PNG output
 Pillow>=10.0.0
+pytest>=7.0.0

@@ -1,0 +1,41 @@
+{
+  "parts": [
+    {
+      "part_id": "3001",
+      "part_name": "Brick 2 x 4",
+      "color": "Bright Red",
+      "color_id": 21,
+      "quantity": 25,
+      "length_mm": 16.0,
+      "width_mm": 32.0,
+      "height_mm": 9.6,
+      "volume_each_mm3": 4915.2,
+      "image_file": ""
+    },
+    {
+      "part_id": "3023",
+      "part_name": "Plate 1 x 2",
+      "color": "Bright Blue",
+      "color_id": 23,
+      "quantity": 40,
+      "length_mm": 8.0,
+      "width_mm": 16.0,
+      "height_mm": 3.2,
+      "volume_each_mm3": 409.6,
+      "image_file": ""
+    },
+    {
+      "part_id": "3002",
+      "part_name": "Brick 2 x 3",
+      "color": "Trans-Clear",
+      "color_id": 111,
+      "quantity": 10,
+      "length_mm": 16.0,
+      "width_mm": 24.0,
+      "height_mm": 9.6,
+      "volume_each_mm3": 3686.4,
+      "image_file": ""
+    }
+  ]
+}
+

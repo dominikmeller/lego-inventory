@@ -23,6 +23,12 @@ A small toolkit to fetch LEGO set inventories, cache part images, and plan color
 - Or run explicitly: `python lego_sorter.py --json aggregated_inventory.json`.
 - Timestamped copies are also saved under `output/{YYYYMMDD-HHMMSS}-*.{md,pdf,json,svg,png}`.
 
+### No-API Demo (Bundled Sample)
+- Trofast preset:
+  - `python lego_sorter.py --json sample_aggregated_inventory.json --preset-trofast-rare-split --output-dir output`
+- BILLY preset:
+  - `python lego_sorter.py --json sample_aggregated_inventory.json --preset-billy-structured --output-dir output`
+
 ## lego_inventory.py
 - Key flags:
   - `--sets-file <path>`: read set numbers (default `sets.txt`).
@@ -76,6 +82,14 @@ A small toolkit to fetch LEGO set inventories, cache part images, and plan color
   - `--preset-billy-structured`
   - Expands to: `--storage storage_system.yaml --disable-1310 --exclude-duplo --mix-transparents --mix-rare --rare-threshold 0.45 --min-fill 0.5 --max-fill 1.0 --pack-strategy greedy --run-billy`
 
+### IKEA Product Links (Global Search)
+- TROFAST Mesh Basket 42×30×10 cm (SKU 40530074):
+  - https://www.ikea.com/search/?q=40530074
+- TROFAST Floor Frame 99×44×94 cm (search by article number from your region):
+  - Example article code: 100.914.53 → https://www.ikea.com/search/?q=10091453
+- BILLY Bookcase 80×106 cm (size varies slightly by region):
+  - https://www.ikea.com/search/?q=BILLY%2080%20106
+
 ## Drawer Model & Costs
 - Usable fill factor `UTIL = 0.80`.
 - Internal drawer dims (mm) defaults:
@@ -89,6 +103,10 @@ A small toolkit to fetch LEGO set inventories, cache part images, and plan color
   - Frame: `TROFAST_FRAME_99x44x94` with slots for shallow baskets; frame-only pricing (buy baskets separately).
 - Sorter buys only needed baskets and minimum frames to host them.
 - Visualizer: `trofast-fitting.py --source <purchase-order.md> [--output-dir output]` renders a front view; fills slots bottom-up with equal visual rows.
+
+### BILLY Mode
+- Uses Infinity Hearts organizer modules (520/5244/1310) sized to fit BILLY 80×106 cm cabinets (2 across).
+- Visualizer: `billy-fitting.py --source <purchase-order.md> [--output-dir output]` renders a front view; validates width/depth.
 
 ## Pipeline Overview
 - Inventory pipeline:
@@ -104,6 +122,23 @@ A small toolkit to fetch LEGO set inventories, cache part images, and plan color
     - With `--cost-optimisation`: evaluate all rack subsets from YAML, repack per subset, and choose the lowest cost plan.
   - Export Markdown/PDF plan and a purchase order with dynamic unit composition, links, and costs.
   - Timestamped names + run meta sidecars are written to `output/`.
+
+## Packaging & Installation
+
+Install from source (editable):
+- python -m pip install -e .
+
+This installs console scripts:
+- `lego-sorter` → runs `lego_sorter.py`
+- `lego-inventory` → runs `lego_inventory.py`
+- `billy-fitting` → runs `billy-fitting.py`
+- `trofast-fitting` → runs `trofast-fitting.py`
+
+Examples:
+- lego-inventory --help
+- lego-sorter --json sample_aggregated_inventory.json --preset-trofast-rare-split --output-dir output
+- billy-fitting --source output/<TS>-purchase-order-storage-system.md --output-dir output
+- trofast-fitting --source output/<TS>-purchase-order-storage-trofast.md --output-dir output
 
 ## Design Choices
 - Conservative fit: axis-aligned compare of known dims; fallback dims for unknowns; tyre/wheel mm parsing; studs→mm mapping.
@@ -130,7 +165,7 @@ Optional screenshots to include (place in `docs/screenshots/` and reference here
 - docs/screenshots/rebrickable-api-key.png (example API key view)
 
 ## Testing & Quality
-- Tests (if present): `pytest -q`
+- Run tests: `pytest -q`
 - Lint/format: `ruff check .` (use `--fix`), `black .`
 - Type-check: `mypy .`
 
@@ -139,5 +174,14 @@ Optional screenshots to include (place in `docs/screenshots/` and reference here
 - PDF export disabled: install ReportLab (in `requirements.txt`) or run with `--no-pdf`.
 - YAML not applied: ensure `PyYAML` is installed (via requirements) and `storage_system.yaml` is present/valid.
 - Very large parts (e.g., hulls/baseplates) may not fit any drawer; they are reported and skipped in packing.
- - ReportLab missing: PDF export prints a warning and is skipped; install `reportlab` from `requirements.txt`.
- - Cairo/Pillow missing: diagram PNG generation falls back or is skipped; SVGs are still saved.
+- ReportLab missing: PDF export prints a warning and is skipped; install `reportlab` from `requirements.txt`.
+- Cairo/Pillow missing: diagram PNG generation falls back or is skipped; SVGs are still saved.
+## Contributing & License
+- Contributions welcome — see `CONTRIBUTING.md` for dev workflow and guidelines.
+- Licensed under the MIT License — see `LICENSE`.
+
+## Trademarks & Disclaimer
+- LEGO is a trademark of the LEGO Group of companies which does not sponsor, authorize or endorse this project.
+- IKEA is a trademark of Inter IKEA Systems B.V. referenced for compatibility and informational purposes only.
+- All product names, SKUs, and brand references are used solely to describe interoperability targets; all trademarks are the property of their respective owners.
+- This project distributes no copyrighted content from those brands and is intended for personal, non‑commercial planning and educational use.

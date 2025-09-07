@@ -1,0 +1,5384 @@
+{
+  "12592c02": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31300c03": {
+    "length_mm": 32.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "40666": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98224": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98223": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0046": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3664": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92453": {
+    "length_mm": 24.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6378": {
+    "length_mm": 32.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6377": {
+    "length_mm": 32.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0034": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98233": {
+    "length_mm": 16.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "89398": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "22881": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6474": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98252": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2302pr0003": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11841c03": {
+    "length_mm": 16.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0086": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87084": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2302pr0009": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2302pr0010": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2302": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11344pr0007": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11170": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14721": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4672": {
+    "length_mm": 32.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0029": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0024": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3011": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98225": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0035": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0026": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "76371": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0027": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0028": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0037": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0036": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0010": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0006": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11169": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2301": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11841c01": {
+    "length_mm": 16.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92094": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31023": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0053": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4196": {
+    "length_mm": 48.0,
+    "width_mm": 96.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4198pr0017": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18857": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0019": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0052": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18814": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0092": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0050": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "61896": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0044": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18652": {
+    "length_mm": 16.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0068": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0051": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15272pr0003": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "12592c01": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98223pr0026": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0103": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11248c01": {
+    "length_mm": 16.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0005": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0047": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0102": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0006": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0004": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0046": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0002": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0001": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31110pr0003": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15515": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31042": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0053": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0054": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "76371pr0003": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4066": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "51703": {
+    "length_mm": 16.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "24417": {
+    "length_mm": 16.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15453pr0005": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "24911c01": {
+    "length_mm": 32.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98223pr0006": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60775": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0032": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "10563": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "76371pr0048": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "13355": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "51262": {
+    "length_mm": 64.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "13607": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "25548": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "25081c01": {
+    "length_mm": 32.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "25549": {
+    "length_mm": 32.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "47408": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92005": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "25550": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6474pr0007": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "76371pr0002": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "24179": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15454pr0003": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "104188": {
+    "length_mm": 32.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "35734": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3664pr0006": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "35965": {
+    "length_mm": 32.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "45141": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "35132": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "35733pr0005": {
+    "length_mm": 32.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "36075pr0007": {
+    "length_mm": 32.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "44524": {
+    "length_mm": 16.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "35960": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4083": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "62113": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3002": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "41532": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92280": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3039pr0018": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "35106": {
+    "length_mm": 144.0,
+    "width_mm": 128.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87580": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6636": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2419": {
+    "length_mm": 24.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "28533": {
+    "length_mm": 64.0,
+    "width_mm": 128.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87081": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60614": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "44302a": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3022": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3032": {
+    "length_mm": 32.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18922": {
+    "length_mm": 72.0,
+    "width_mm": 128.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "61409": {
+    "length_mm": 16.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "72454": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15535": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4151b": {
+    "length_mm": 64.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3004": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3010": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3040b": {
+    "length_mm": 16.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "35299": {
+    "length_mm": 24.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6140": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3009": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3003": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98100": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11211": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30592": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30386": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "16968": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "48336": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15573": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60470b": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3298": {
+    "length_mm": 24.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11290": {
+    "length_mm": 16.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3829c01": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3069bpr0101": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2431": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "33243": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3941": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "63868": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87079pr0184": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "41539": {
+    "length_mm": 64.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3001": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15207": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60581": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60581pr0020": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3023": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "85984": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15068": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "50373": {
+    "length_mm": 24.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "47753pr0005": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60594": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3245c": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4079b": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "93273": {
+    "length_mm": 32.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3069b": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3823": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87752": {
+    "length_mm": 48.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2412b": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30153": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3039pr0005": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14769": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2432": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "28535": {
+    "length_mm": 64.0,
+    "width_mm": 128.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3710": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3020": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4286": {
+    "length_mm": 24.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "64449": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "95347": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31202c03": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "12592c04": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "12592c03": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3011pr1003": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "31925": {
+    "length_mm": 24.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98218": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "76371pr0121": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0043": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18892": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "50949": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3024": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4477": {
+    "length_mm": 8.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3666": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3034": {
+    "length_mm": 16.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15397": {
+    "length_mm": 24.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "62743": {
+    "length_mm": 16.0,
+    "width_mm": 128.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60477": {
+    "length_mm": 32.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30363": {
+    "length_mm": 32.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2584": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "59895": {
+    "length_mm": 112.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11209": {
+    "length_mm": 168.0,
+    "width_mm": 72.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "28324": {
+    "length_mm": 48.0,
+    "width_mm": 96.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "43723": {
+    "length_mm": 24.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "43722": {
+    "length_mm": 24.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15254": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2445": {
+    "length_mm": 16.0,
+    "width_mm": 96.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6141": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11477": {
+    "length_mm": 16.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87616": {
+    "length_mm": 48.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87611": {
+    "length_mm": 48.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "47457": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "44126": {
+    "length_mm": 48.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4865b": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3021": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3795": {
+    "length_mm": 16.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3030": {
+    "length_mm": 32.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "85984pr0143": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32530": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87079": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18980": {
+    "length_mm": 16.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87609": {
+    "length_mm": 16.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "54200": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11153": {
+    "length_mm": 32.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "22889": {
+    "length_mm": 48.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "93589": {
+    "length_mm": 32.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "50745": {
+    "length_mm": 32.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3069bpr0100": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "99207": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30414": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "50943": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3832": {
+    "length_mm": 16.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2420": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "85861": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2654": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4488": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2585": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2415": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98138": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87612": {
+    "length_mm": 48.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "57783": {
+    "length_mm": 24.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87615": {
+    "length_mm": 48.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87613": {
+    "length_mm": 48.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11215": {
+    "length_mm": 40.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "13731": {
+    "length_mm": 80.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6079": {
+    "length_mm": 8.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11212": {
+    "length_mm": 24.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11458": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92593": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3039pr0013": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15068pr0015": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "45677": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3660": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4624": {
+    "length_mm": 64.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "61252": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "10201": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "43056": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4282": {
+    "length_mm": 16.0,
+    "width_mm": 128.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60478": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18677": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "99563": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87697": {
+    "length_mm": 168.0,
+    "width_mm": 96.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "50861": {
+    "length_mm": 168.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3460": {
+    "length_mm": 8.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2877": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3958": {
+    "length_mm": 48.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92438": {
+    "length_mm": 64.0,
+    "width_mm": 128.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3665": {
+    "length_mm": 16.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32802": {
+    "length_mm": 32.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4032a": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "22885": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4533": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "43045": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3029": {
+    "length_mm": 32.0,
+    "width_mm": 96.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30586": {
+    "length_mm": 16.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3039": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "61485": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "50862": {
+    "length_mm": 120.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3005pr9993": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3622": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3062b": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32952": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60583b": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92410": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3822": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3821": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87544": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3623": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3036": {
+    "length_mm": 48.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11476": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "29120": {
+    "length_mm": 16.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "29119": {
+    "length_mm": 16.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "52031": {
+    "length_mm": 32.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4162": {
+    "length_mm": 8.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30357": {
+    "length_mm": 24.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "88293": {
+    "length_mm": 24.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18646": {
+    "length_mm": 24.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "35336": {
+    "length_mm": 16.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "59900": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3005": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60479": {
+    "length_mm": 8.0,
+    "width_mm": 96.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "88930": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4599b": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068b": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "20482": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6014b": {
+    "length_mm": 88.0,
+    "width_mm": 96.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2926": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "16091": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87414": {
+    "length_mm": 120.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98302": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3678b": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4346": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4345b": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4595": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "34337": {
+    "length_mm": 64.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2655": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3031": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "93348pr0003": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2431pr0017": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "34103": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "47456": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32059": {
+    "length_mm": 32.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4740": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "35480": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "52107": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "93606": {
+    "length_mm": 32.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98281": {
+    "length_mm": 48.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "27263": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "85984pr0011": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "28779": {
+    "length_mm": 32.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "12622c03": {
+    "length_mm": 32.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18674": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3037": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "26603": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "61072": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6182": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3039pr0001": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18675": {
+    "length_mm": 48.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "85984pr0006": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92947": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32083": {
+    "length_mm": 48.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14769pr0086": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "44665": {
+    "length_mm": 32.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "51739": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30237b": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "22888": {
+    "length_mm": 32.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18675pr0002": {
+    "length_mm": 48.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60581pr0019": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "43898": {
+    "length_mm": 24.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98222": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3437pr0052": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98223pr0002": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18720": {
+    "length_mm": 96.0,
+    "width_mm": 96.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "12602": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "76371pr0112": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "16196": {
+    "length_mm": 96.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4890": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "39787c01": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4891": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11198": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "35654": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "88930pr0018": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2431pr0116": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60603": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr0418": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "12622c02": {
+    "length_mm": 32.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4598": {
+    "length_mm": 24.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "64644": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3743": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4285b": {
+    "length_mm": 48.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30359b": {
+    "length_mm": 8.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "37352": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2921": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "44375b": {
+    "length_mm": 48.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30383": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "41862": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60481": {
+    "length_mm": 16.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "42610": {
+    "length_mm": 88.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "33909": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3066": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30372pr0005": {
+    "length_mm": 56.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "47847": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30145": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "44674": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3035": {
+    "length_mm": 32.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15070": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "27261": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "65676": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "28192": {
+    "length_mm": 16.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4861pr0001": {
+    "length_mm": 24.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "43979": {
+    "length_mm": 96.0,
+    "width_mm": 96.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "89201": {
+    "length_mm": 192.0,
+    "width_mm": 112.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "35578": {
+    "length_mm": 296.0,
+    "width_mm": 112.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30076": {
+    "length_mm": 32.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "64225pr0005": {
+    "length_mm": 32.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "28802": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "55981": {
+    "length_mm": 144.0,
+    "width_mm": 112.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87617": {
+    "length_mm": 8.0,
+    "width_mm": 40.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3069bpr0090": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60208": {
+    "length_mm": 248.0,
+    "width_mm": 120.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2423": {
+    "length_mm": 32.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30165": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "45677pr0010": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "63864": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30841": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30249": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92279": {
+    "length_mm": 56.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "42022": {
+    "length_mm": 48.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "24309pr0006": {
+    "length_mm": 24.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4287b": {
+    "length_mm": 24.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "23930": {
+    "length_mm": 64.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2417": {
+    "length_mm": 48.0,
+    "width_mm": 40.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "51858": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92582": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3037pr0006": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "43888": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30387": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3680": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "24866": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6091": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3839b": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3679": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87087": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3176": {
+    "length_mm": 24.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98138pr0008": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30236": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "44676": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "71155": {
+    "length_mm": 80.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3043": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3700": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "43713": {
+    "length_mm": 48.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "23999c01": {
+    "length_mm": 96.0,
+    "width_mm": 320.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60897": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3070b": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30503": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2340": {
+    "length_mm": 32.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92107": {
+    "length_mm": 48.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4175": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15712": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30367c": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "23969": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "21445": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32316": {
+    "length_mm": 8.0,
+    "width_mm": 40.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3070bpr0234": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "99780": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "44861": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "48933": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "28782": {
+    "length_mm": 48.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4289": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2454b": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "16577": {
+    "length_mm": 8.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "44301b": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "50340": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6231": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4081b": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92099": {
+    "length_mm": 32.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3297": {
+    "length_mm": 24.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3039pr0025": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3039pr0027": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "48267": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "49153": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3028": {
+    "length_mm": 48.0,
+    "width_mm": 96.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "759532": {
+    "length_mm": 40.0,
+    "width_mm": 40.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6215": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2456": {
+    "length_mm": 16.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4600": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3747b": {
+    "length_mm": 24.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3065": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98138pr0026": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98138pr0027": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3007": {
+    "length_mm": 16.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2397": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60476": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "57697": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2730": {
+    "length_mm": 8.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32124": {
+    "length_mm": 8.0,
+    "width_mm": 40.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60219": {
+    "length_mm": 48.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98834": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11203": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4490": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "53540": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98560": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6541": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92950": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "54662": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "44568": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30157": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "17485": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4590": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30136": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30385": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60601": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32278": {
+    "length_mm": 8.0,
+    "width_mm": 120.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "52979": {
+    "length_mm": 48.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "58176": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "57360": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "25214": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "54657": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32739": {
+    "length_mm": 32.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32000": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32064a": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "41531": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60032": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "61484": {
+    "length_mm": 40.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "76766": {
+    "length_mm": 40.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "99206": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30663": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4208": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60483": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92402": {
+    "length_mm": 32.0,
+    "width_mm": 112.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3006": {
+    "length_mm": 16.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60475a": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "44570": {
+    "length_mm": 24.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3008": {
+    "length_mm": 8.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "88292": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6081": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14718": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4209b": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3709": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "84954": {
+    "length_mm": 24.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30150": {
+    "length_mm": 24.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "26604": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98138pr0107": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "36840": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11610": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14417": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "50950": {
+    "length_mm": 24.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32028": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11055": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15403": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14418": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "41740": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4460b": {
+    "length_mm": 16.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32524": {
+    "length_mm": 8.0,
+    "width_mm": 56.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "41770": {
+    "length_mm": 32.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "41769": {
+    "length_mm": 32.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3957b": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "43857": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32140": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "61408": {
+    "length_mm": 24.0,
+    "width_mm": 0.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "61904": {
+    "length_mm": 32.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32523": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32526": {
+    "length_mm": 24.0,
+    "width_mm": 40.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6632": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14720": {
+    "length_mm": 24.0,
+    "width_mm": 40.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11478": {
+    "length_mm": 8.0,
+    "width_mm": 40.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "75533pr0004": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4070": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2817": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "71752": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32607": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "36841": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "88072": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "22388": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3070bpr0160": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98283": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98138pr0018": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "49668": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "25269": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "26601": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "53119": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "38583": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87552": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "20953": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "47905": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3069bpr0303": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3069bpr0304": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32056": {
+    "length_mm": 24.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18943": {
+    "length_mm": 40.0,
+    "width_mm": 56.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "24116": {
+    "length_mm": 48.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3070bpr0235": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60484": {
+    "length_mm": 24.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32009": {
+    "length_mm": 8.0,
+    "width_mm": 88.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "41239": {
+    "length_mm": 8.0,
+    "width_mm": 104.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "44728": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "75533pr0001": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30541": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "78256": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6179": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32018": {
+    "length_mm": 8.0,
+    "width_mm": 112.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "69729": {
+    "length_mm": 16.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "27448": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "40145": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18977": {
+    "length_mm": 192.0,
+    "width_mm": 96.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "66727": {
+    "length_mm": 144.0,
+    "width_mm": 96.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "93274": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6232": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "50337": {
+    "length_mm": 24.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98138pr0035": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6249": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98280": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "91988": {
+    "length_mm": 16.0,
+    "width_mm": 112.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "54091": {
+    "length_mm": 64.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "73230": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92262": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92263": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "73562": {
+    "length_mm": 24.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6192b": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "75539": {
+    "length_mm": 64.0,
+    "width_mm": 40.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "75538": {
+    "length_mm": 64.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98282": {
+    "length_mm": 32.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "65138": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "24246": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "64453": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3062bpr0027": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15208": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14769pr1079": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "99781": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "66897": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "56890": {
+    "length_mm": 192.0,
+    "width_mm": 96.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "69963": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "44567b": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30565": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "13965": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "13548": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15068pr0049": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3069bpr0328": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15456": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15571": {
+    "length_mm": 16.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "53923": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "22890": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "79987": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3069bpr0276": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "53029": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "69754": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14704": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "79846": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60474": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "79897": {
+    "length_mm": 16.0,
+    "width_mm": 40.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2540": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "66792": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3044c": {
+    "length_mm": 16.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "26603pr9976": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "22385": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87620": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "47753": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2450": {
+    "length_mm": 24.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "79898pat0002": {
+    "length_mm": 72.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15209": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4186": {
+    "length_mm": 384.0,
+    "width_mm": 384.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "49311": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15672": {
+    "length_mm": 16.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14719": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "27925": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "65886": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87079pr0236": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "65886pr0008": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6112": {
+    "length_mm": 8.0,
+    "width_mm": 96.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2465": {
+    "length_mm": 8.0,
+    "width_mm": 128.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "85080": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3027": {
+    "length_mm": 48.0,
+    "width_mm": 128.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "69958": {
+    "length_mm": 128.0,
+    "width_mm": 128.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "71772pr0001": {
+    "length_mm": 64.0,
+    "width_mm": 128.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "71771": {
+    "length_mm": 40.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87079pr0235": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "34816": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "91405": {
+    "length_mm": 128.0,
+    "width_mm": 128.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "67688": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "24309": {
+    "length_mm": 24.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98549": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2357": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98138pr0197": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "80683": {
+    "length_mm": 24.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "22886": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15395": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30987": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "42205": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15210pr0006": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14769pr1172": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6111": {
+    "length_mm": 8.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3299": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "61345": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92474": {
+    "length_mm": 48.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "49699": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "65635": {
+    "length_mm": 16.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14419": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "23949": {
+    "length_mm": 16.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87398pat0001": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "88644pat0001": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "65617": {
+    "length_mm": 24.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "73109": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "43710": {
+    "length_mm": 32.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "43711": {
+    "length_mm": 32.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11127": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "92583": {
+    "length_mm": 24.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "80326": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "72132": {
+    "length_mm": 16.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15068pr0058": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "65202": {
+    "length_mm": 48.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60212": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "28326": {
+    "length_mm": 24.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3010pr0084": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11291": {
+    "length_mm": 24.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "65509": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "85943": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18990": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15470": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "79389": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "61780": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3942c": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "63783": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "93095": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4871": {
+    "length_mm": 32.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "43712": {
+    "length_mm": 48.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "13349": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "73983": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "23950": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3039pr0029": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18649": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14769pr9994": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "47458": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "26603pr9997": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "79896": {
+    "length_mm": 32.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "66956": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32803": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr9975": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "65886pr0001": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "66787": {
+    "length_mm": 48.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "66789": {
+    "length_mm": 48.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr9743": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "66859": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "66792pr0142": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "66857pr0009": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3004pr0056": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "37352pr0008": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr9740": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "35443": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "64799": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3894": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr9742": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "66790": {
+    "length_mm": 64.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "79750": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "34103pr0001": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "27266": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr9721": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "35446": {
+    "length_mm": 48.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3622pr0061": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "49307": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr9741": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "67931pat0001": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "91176": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "26603pr0057": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "67329": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2476a": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr9892": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr0494": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3004pr0075": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "66858": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr9990": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6134": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "44302b": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "80324": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3937": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "42023": {
+    "length_mm": 48.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98138pr0062": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3895": {
+    "length_mm": 8.0,
+    "width_mm": 96.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "24201": {
+    "length_mm": 16.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "24299": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "24307": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "58181": {
+    "length_mm": 24.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "71100": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98341": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14769pr9990": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "75522": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98138pr0282": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "11203pr9998": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15068pr0059": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14769pr9991": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr9681": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98138pr0186": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3004pr0089": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "89681": {
+    "length_mm": 32.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "84866": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "17485pr0007": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr9680": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32449": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32250": {
+    "length_mm": 24.0,
+    "width_mm": 40.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3701": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "41677": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32063": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32828": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18653": {
+    "length_mm": 8.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr9679": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "68869": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3004pr0080": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3004pr0081": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3004pr0079": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr0038": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr0039": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr0040": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "67095": {
+    "length_mm": 24.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "67013pat0001": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60475b": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "44865": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32348": {
+    "length_mm": 8.0,
+    "width_mm": 56.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "73831": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr9890": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr9891": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30000": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3069bpr0348": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2458": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "51482": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "66955": {
+    "length_mm": 32.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "52501": {
+    "length_mm": 48.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "74698": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30028": {
+    "length_mm": 112.0,
+    "width_mm": 72.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2441": {
+    "length_mm": 32.0,
+    "width_mm": 56.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6583": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "71772": {
+    "length_mm": 64.0,
+    "width_mm": 128.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "19798": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2489": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2453b": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "59349": {
+    "length_mm": 8.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2435": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "20310": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2653": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3069bpr0301": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "27507": {
+    "length_mm": 32.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "74967": {
+    "length_mm": 64.0,
+    "width_mm": 72.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30137": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "25375": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60596": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "20309": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14769pr1070": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "60616b": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "57895": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3185": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3040bpr0013": {
+    "length_mm": 16.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3045": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr0019": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "39893": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "54661": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15469": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "67810": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "64225": {
+    "length_mm": 32.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "47759": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "14769pr1116": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "39767": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "50951": {
+    "length_mm": 112.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "55978": {
+    "length_mm": 296.0,
+    "width_mm": 176.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "65634": {
+    "length_mm": 48.0,
+    "width_mm": 96.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "93595": {
+    "length_mm": 88.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "85984pr0002": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "41748": {
+    "length_mm": 48.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "41747": {
+    "length_mm": 48.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "10247": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "30602": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "41854": {
+    "length_mm": 16.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "66155": {
+    "length_mm": 240.0,
+    "width_mm": 160.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "26603pr9975": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "18973": {
+    "length_mm": 48.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "39793": {
+    "length_mm": 24.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "50408": {
+    "length_mm": 16.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "66961": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "50407": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "87761": {
+    "length_mm": 8.0,
+    "width_mm": 56.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "6629": {
+    "length_mm": 8.0,
+    "width_mm": 72.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "40490": {
+    "length_mm": 8.0,
+    "width_mm": 72.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "55976": {
+    "length_mm": 448.0,
+    "width_mm": 208.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "12799": {
+    "length_mm": 48.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32525": {
+    "length_mm": 8.0,
+    "width_mm": 88.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2391": {
+    "length_mm": 8.0,
+    "width_mm": 56.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "56145": {
+    "length_mm": 32.0,
+    "width_mm": 160.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32271": {
+    "length_mm": 8.0,
+    "width_mm": 72.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "71682": {
+    "length_mm": 16.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2723": {
+    "length_mm": 24.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32065": {
+    "length_mm": 8.0,
+    "width_mm": 56.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "80285": {
+    "length_mm": 24.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "71709": {
+    "length_mm": 24.0,
+    "width_mm": 56.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "24119": {
+    "length_mm": 56.0,
+    "width_mm": 24.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "23444": {
+    "length_mm": 24.0,
+    "width_mm": 48.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "56891": {
+    "length_mm": 296.0,
+    "width_mm": 144.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "73825": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "32293": {
+    "length_mm": 8.0,
+    "width_mm": 72.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "61254": {
+    "length_mm": 184.0,
+    "width_mm": 56.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "56903": {
+    "length_mm": 144.0,
+    "width_mm": 64.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4727": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3070bpr0242": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr0486": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "98138pr0088": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "4733": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "13770": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3033": {
+    "length_mm": 48.0,
+    "width_mm": 80.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "1745": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3004pr0014": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3068bpr0236": {
+    "length_mm": 16.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3004pr0036": {
+    "length_mm": 8.0,
+    "width_mm": 16.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "15400": {
+    "length_mm": 8.0,
+    "width_mm": 32.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "2310": {
+    "length_mm": 16.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "3070bpr0288": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "78329": {
+    "length_mm": 8.0,
+    "width_mm": 40.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  },
+  "26047": {
+    "length_mm": 8.0,
+    "width_mm": 8.0,
+    "height_mm": 9.6,
+    "source": "estimation"
+  }
+}
